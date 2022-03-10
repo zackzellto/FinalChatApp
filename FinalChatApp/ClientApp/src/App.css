@@ -1,0 +1,308 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(6px + 2vmin);
+  color: white;
+  box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+}
+
+@media (max-width: 576px) {
+  #title-bar {
+    color: #0d1f45;
+    font-weight: 900;
+    border-radius: 16px;
+    margin-bottom: 2%;
+    width: 98%;
+    margin-left: 1%;
+    background-color: white;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  .btn {
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+  #message-input {
+    justify-content: end;
+    width: 100%;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+  #message-display {
+    height: 600px;
+    width: 200px;
+    position: relative;
+    left: 3%;
+    opacity: 0.7;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  #conversations {
+    position: absolute;
+    top: 24.5%;
+    height: 673px;
+    width: 378px;
+    background-color: white;
+    border-radius: 16px;
+    opacity: 0.7;
+    display: none;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+}
+
+@media (max-width: 768px) {
+  #title-bar {
+    color: #0d1f45;
+    font-weight: 900;
+    border-radius: 16px;
+    margin-bottom: 2%;
+    width: 95%;
+    margin-left: 2.5%;
+    background-color: white;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  .btn {
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  #message-input {
+    justify-content: end;
+    width: 100%;
+    opacity: 0.7;
+    margin-top: 2%;
+    margin-bottom: -2%;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  #message-display {
+    height: 600px;
+    width: 510px;
+    position: relative;
+    left: 3%;
+    opacity: 0.7;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  #conversations {
+    position: absolute;
+    top: 24.5%;
+    height: 673px;
+    width: 378px;
+    background-color: white;
+    border-radius: 16px;
+    opacity: 0.7;
+    display: none;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+  #title-bar {
+    color: #0d1f45;
+    font-weight: 900;
+    border-radius: 16px;
+    margin-bottom: 2%;
+    width: 98%;
+    margin-left: 1%;
+    background-color: white;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  #message-input {
+    justify-content: end;
+    width: 100%;
+    opacity: 0.7;
+    margin-top: 2%;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  .btn {
+    margin-top: 2%;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+  #message-display {
+    height: 600px;
+    width: 457px;
+    position: relative;
+    right: 15%;
+    opacity: 0.7;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  #conversations {
+    position: absolute;
+    top: 24.8%;
+    height: 600px;
+    width: 227px;
+    background-color: white;
+    border-radius: 16px;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  #title-bar {
+    color: #0d1f45;
+    font-weight: 900;
+    border-radius: 16px;
+    margin-bottom: 2%;
+    width: 98%;
+    margin-left: 1%;
+    background-color: white;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  #message-input {
+    justify-content: end;
+    width: 49.4%;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+  .btn {
+    width: 100px;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+  #message-display {
+    height: 600px;
+    width: 580px;
+    position: relative;
+    right: 110px;
+    opacity: 0.7;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  #conversations {
+    position: absolute;
+    top: 25.2%;
+    height: 668px;
+    width: 340px;
+    background-color: white;
+    border-radius: 16px;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #title-bar {
+    color: #0d1f45;
+    font-weight: 900;
+    border-radius: 16px;
+    margin-bottom: 2%;
+    width: 98%;
+    margin-left: 1%;
+    background-color: white;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  #message-input {
+    justify-content: end;
+    width: 58.5%;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+  .btn {
+    width: 100px;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  #message-display {
+    height: 600px;
+    width: 67.5%;
+    position: relative;
+    right: 18.5%;
+    opacity: 0.7;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  #conversations {
+    position: absolute;
+    top: 25.2%;
+    height: 671px;
+    width: 325px;
+    background-color: white;
+    border-radius: 16px;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1400px) {
+  #title-bar {
+    color: #0d1f45;
+    font-weight: 900;
+    border-radius: 16px;
+    margin-bottom: 2%;
+    width: 98%;
+    margin-left: 1%;
+    background-color: white;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  #message-input {
+    justify-content: end;
+    width: 59.9%;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+  .btn {
+    width: 100px;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  #message-display {
+    height: 600px;
+    width: 67.5%;
+    position: relative;
+    right: 18.5%;
+    border-radius: 16px;
+    background-color: white;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+
+  #conversations {
+    position: absolute;
+    top: 25.2%;
+    height: 674px;
+    width: 378px;
+    background-color: white;
+    border-radius: 16px;
+    opacity: 0.7;
+    box-shadow: rgb(255, 255, 255) 0px 20px 60px -10px;
+  }
+}
