@@ -14,7 +14,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.SpaServices;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 
-namespace CapstoneChatApp
+namespace FinalChatApp
 {
     public class Startup
     {
@@ -32,7 +32,7 @@ namespace CapstoneChatApp
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FinalChatApp", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CapstoneChatApp", Version = "v1" });
             });
         }
 
@@ -43,7 +43,7 @@ namespace CapstoneChatApp
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FinalChatApp v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CapstoneChatApp v1"));
             }
 
             app.UseHttpsRedirection();

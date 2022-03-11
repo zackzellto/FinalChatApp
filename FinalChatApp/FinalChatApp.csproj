@@ -14,6 +14,8 @@
     <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="3.1.23" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.3" />
     <PackageReference Include="Npgsql" Version="6.0.3" />
+    <PackageReference Include="FluentNHibernate" Version="3.1.0" />
+    <PackageReference Include="NHibernate" Version="5.3.11" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +26,8 @@
     <None Remove="Microsoft.AspNetCore.SpaServices" />
     <None Remove="Microsoft.AspNetCore.SpaServices.Extensions" />
     <None Remove="Npgsql" />
+    <None Remove="FluentNHibernate" />
+    <None Remove="NHibernate" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
