@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { LoginForm } from "./loginForm";
+import { ChatAppUI } from "../responsive-ui"
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { AccountContext } from "./accountContext";
@@ -111,6 +112,13 @@ export function AccountBox(props) {
     }, 400)
   }
 
+  const switchToApp = () => {
+    playExpandingAnimation();
+    setTimeout(() => {
+      setActive("chatapp")
+    }, 400)
+  }
+
   const switchToSignin = () => {
     playExpandingAnimation();
     setTimeout(() => {
@@ -118,7 +126,7 @@ export function AccountBox(props) {
     }, 400)
   }
 
-  const contextValue = { switchToSignup, switchToSignin };
+  const contextValue = { switchToSignup, switchToSignin, switchToApp };
 
   return(
     <AccountContext.Provider value={contextValue}>
@@ -142,6 +150,7 @@ export function AccountBox(props) {
         <InnerContainer>
           {active === "signin" && <LoginForm />}
           {active === "signup" && <SignUpForm />}
+          {active === "chatapp" && <ChatAppUI />}
         </InnerContainer>
       </BoxContainer>
     </AccountContext.Provider>
