@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { LoginForm } from "./loginForm";
-import { ChatAppUI } from "../responsive-ui"
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { AccountContext } from "./accountContext";
@@ -20,6 +19,8 @@ filter: drop-shadow(16px 16px 10px black);
   position: relative;
   overflow: hidden;
 `;
+
+
 
 const TopContainer = styled.div`
   width: 100%;
@@ -112,12 +113,7 @@ export function AccountBox(props) {
     }, 400)
   }
 
-  const switchToApp = () => {
-    playExpandingAnimation();
-    setTimeout(() => {
-      setActive("chatapp")
-    }, 400)
-  }
+  
 
   const switchToSignin = () => {
     playExpandingAnimation();
@@ -126,7 +122,7 @@ export function AccountBox(props) {
     }, 400)
   }
 
-  const contextValue = { switchToSignup, switchToSignin, switchToApp };
+  const contextValue = { switchToSignup, switchToSignin };
 
   return(
     <AccountContext.Provider value={contextValue}>
@@ -146,11 +142,12 @@ export function AccountBox(props) {
             
             <HeaderText>ChatApp</HeaderText>
           </HeaderContainer>}
+         
         </TopContainer>
         <InnerContainer>
           {active === "signin" && <LoginForm />}
           {active === "signup" && <SignUpForm />}
-          {active === "chatapp" && <ChatAppUI />}
+          
         </InnerContainer>
       </BoxContainer>
     </AccountContext.Provider>

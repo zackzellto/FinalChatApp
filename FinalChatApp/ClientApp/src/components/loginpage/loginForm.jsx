@@ -7,12 +7,12 @@ import { useContext } from "react";
 
 
 
+
+
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext)
-  const { switchToApp } = useContext(AccountContext)
-
-
-
+ 
+  
 
   return(
     <BoxContainer>
@@ -26,7 +26,8 @@ export function LoginForm(props) {
       <Marginer direction="vertical" margin={10} />
         
         <Marginer direction="vertical" margin="1em" />
-        <SubmitButton type="submit" href="#" onClick={switchToApp}>Sign in.</SubmitButton>
+        
+        <SubmitButton type="submit" href="#">Sign in.</SubmitButton>
         <Marginer direction="vertical" margin=".5em"></Marginer>;
         <MutedLink href="#">Don't have an account? <BoldLink href="#" onClick={switchToSignup}>Sign up</BoldLink></MutedLink>
     </BoxContainer>
