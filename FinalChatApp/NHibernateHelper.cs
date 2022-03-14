@@ -3,7 +3,7 @@ using System.Reflection;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
-using ReactChatApp.Mappings;
+using FinalChatApp.Mappings;
 
 namespace ReactChatApp
 {
@@ -48,7 +48,7 @@ namespace ReactChatApp
                         .UseSecondLevelCache()
                         .ProviderClass<NHibernate.Cache.HashtableCacheProvider>())
                 
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ChatUsersMap>())
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserRegisterLoginMap>())
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ChatMessagesMap>())
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ChatConversationsMap>())
                 .Mappings(m => m.FluentMappings.AddFromAssembly(Assembly.GetExecutingAssembly()))

@@ -1,12 +1,12 @@
-﻿using FluentNHibernate.Mapping;
-using ReactChatApp.Models;
+﻿using FinalChatApp.Models;
+using FluentNHibernate.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReactChatApp.Mappings
+namespace FinalChatApp.Mappings
 {
     class ChatMessagesMap : ClassMap<ChatMessages>
     {

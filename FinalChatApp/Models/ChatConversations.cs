@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ReactChatApp.Models
+namespace FinalChatApp.Models
 {
     public class ChatConversations
     {
@@ -12,11 +12,6 @@ namespace ReactChatApp.Models
             this.conversation_id = conversation_id;
             this.created_at = created_at;
             this.conversation_users = conversation_users;
-        }
-
-        public ChatConversations()
-        {
-
         }
 
     }
