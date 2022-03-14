@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinalChatApp.Controllers
 {
-    [Route("api/conversations")]
+    [Route("api/[controller]")]
     public class ConversationsController : Controller
     {
         // GET: api/values
