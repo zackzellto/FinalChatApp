@@ -67,7 +67,7 @@ filter: drop-shadow(6px 6px 3px #0566e4);
     }
 `
 
-export const SubmitButton = styled.button`
+export const Button = styled.button`
     width: 100%;
     height: 60px;
     padding: 11px 40%;

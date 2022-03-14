@@ -1,12 +1,8 @@
 import React from "react";
-import { BoldLink, BoxContainer, FormContainer, Input, MutedLink, SubmitButton } from "./sharedToForms";
+import { BoldLink, BoxContainer, FormContainer, Input, MutedLink, Button } from "./sharedToForms";
 import { Marginer } from "../marginer"
 import { AccountContext } from "./accountContext";
 import { useContext } from "react"
-import { Routes } from "react-router";
-
-
-
 
 
 
@@ -28,7 +24,7 @@ export function LoginForm(props) {
         
         <Marginer direction="vertical" margin="1em" />
         
-        <SubmitButton type="submit" href="../chatappui.jsx">Sign in.</SubmitButton>
+        <Button type="submit" href="#">Sign in.</Button>
         <Marginer direction="vertical" margin=".5em"></Marginer>;
         <MutedLink href="#">Don't have an account? <BoldLink href="#" onClick={switchToSignup}>Sign up</BoldLink></MutedLink>
     </BoxContainer>

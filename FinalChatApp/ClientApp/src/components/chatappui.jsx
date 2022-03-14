@@ -1,6 +1,6 @@
 import { Container, Col, Row, Button, Form } from "react-bootstrap";
 
-export const ChatAppUI = () => {
+export function ChatAppUI () {
   return (
     <Container id="chat-app-ui">
       <Row>
@@ -34,3 +34,5 @@ export const ChatAppUI = () => {
     </Container>
   );
 };
+
+

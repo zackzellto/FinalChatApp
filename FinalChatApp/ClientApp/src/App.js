@@ -18,9 +18,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <AppContainer>
+        <ChatAppUI />
+        {/* <AppContainer>
           <AccountBox></AccountBox>
-        </AppContainer>
+        </AppContainer> */}
       </header>
     </div>
   );

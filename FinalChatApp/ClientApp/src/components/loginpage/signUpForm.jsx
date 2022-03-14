@@ -1,5 +1,5 @@
 import React from "react";
-import { BoldLink, BoxContainer, FormContainer, Input, MutedLink, SubmitButton } from "./sharedToForms";
+import { BoldLink, BoxContainer, FormContainer, Input, MutedLink, Button } from "./sharedToForms";
 import { Marginer } from "../marginer"
 import { useContext } from "react";
 import { AccountContext } from "./accountContext";
@@ -43,7 +43,7 @@ export function SignUpForm(props) {
       <Marginer direction="vertical" margin={10} />
         
         <Marginer direction="vertical" margin="1em" />
-        <SubmitButton type="submit" href="#" onClick={switchToSignin}>Sign up.</SubmitButton>
+        <Button type="submit" href="#" onClick={switchToSignin}>Sign up.</Button>
         <Marginer direction="vertical" margin=".5em"></Marginer>;
         <MutedLink href="#">Have an account? <BoldLink href="#" onClick={switchToSignin}>Sign in</BoldLink></MutedLink>
     </BoxContainer>

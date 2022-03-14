@@ -64,6 +64,7 @@ namespace FinalChatApp.Controllers
         {
             List<Claim> claims = new List<Claim>
             {
+                
                 new Claim(ClaimTypes.Name, user.Username),
                
             };
