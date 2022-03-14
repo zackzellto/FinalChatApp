@@ -28,7 +28,7 @@ export function LoginForm(props) {
         
         <Marginer direction="vertical" margin="1em" />
         
-        <SubmitButton type="submit" href="#">Sign in.</SubmitButton>
+        <SubmitButton type="submit" href="../chatappui.jsx">Sign in.</SubmitButton>
         <Marginer direction="vertical" margin=".5em"></Marginer>;
         <MutedLink href="#">Don't have an account? <BoldLink href="#" onClick={switchToSignup}>Sign up</BoldLink></MutedLink>
     </BoxContainer>
