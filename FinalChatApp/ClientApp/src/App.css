@@ -2,6 +2,9 @@
   text-align: center;
 }
 
+#app-container {
+}
+
 .App-header {
   background: rgb(2, 0, 36);
   background: linear-gradient(
@@ -12,6 +15,7 @@
   );
 
   min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;

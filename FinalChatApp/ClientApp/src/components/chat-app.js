@@ -1,13 +1,22 @@
-import { Container, Col, Row, Button, Form } from "react-bootstrap";
+import { Col, Row, Button, Form } from "react-bootstrap";
+import styled from "styled-components";
+
+const BoxContainer = styled.div`
+  filter: drop-shadow(16px 16px 10px black);
+  width: 480px;
+  min-height: 750px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(15, 15, 15, 0.28);
+  position: relative;
+  overflow: hidden;
+`;
 
 export function ChatApp() {
   return (
-    <Container id="chat-app">
-      <Row>
-        <Col id="title-bar" md={12}>
-          Chat App
-        </Col>
-      </Row>{" "}
+    <BoxContainer id="app-container">
       <Col id="conversations" md={{ span: 3, offset: 0 }}>
         Conversation Panel
       </Col>
@@ -31,6 +40,6 @@ export function ChatApp() {
           </Button>
         </div>
       </Row>
-    </Container>
+    </BoxContainer>
   );
 }

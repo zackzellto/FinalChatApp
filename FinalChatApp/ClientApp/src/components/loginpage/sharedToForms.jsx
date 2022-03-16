@@ -84,6 +84,6 @@ export const Button = styled.button`
 background: linear-gradient(90deg, rgba(2,0,36,1) 0%, #2897f1 35%, #3b9ae7 100%);
 
 &:hover {
-    filter: brightness(2.23);
+    filter: brightness(1.23);
 }
 `

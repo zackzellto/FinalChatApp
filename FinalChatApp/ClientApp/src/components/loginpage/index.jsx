@@ -21,6 +21,19 @@ filter: drop-shadow(16px 16px 10px black);
   overflow: hidden;
 `;
 
+const BoxContainerUI = styled.div`
+filter: drop-shadow(16px 16px 10px black);
+  width: px;
+  min-height: 750px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(15, 15, 15, 0.28);
+  position: relative;
+  overflow: hidden;
+`;
+
 
 
 const TopContainer = styled.div`
@@ -148,7 +161,7 @@ export function AccountBox(props) {
             
             <HeaderText>ChatApp</HeaderText>
           </HeaderContainer>}
-          {active === "app" && <HeaderContainer>
+          {active === "app" &&<HeaderContainer>
             
             <HeaderText>ChatApp</HeaderText>
           </HeaderContainer>}
