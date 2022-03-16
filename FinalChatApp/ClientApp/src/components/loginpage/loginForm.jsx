@@ -3,6 +3,7 @@ import { BoldLink, BoxContainer, FormContainer, Input, MutedLink, Button } from 
 import { Marginer } from "../marginer"
 import { AccountContext } from "./accountContext";
 import { useContext } from "react"
+import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 
 
 
@@ -24,7 +25,7 @@ export function LoginForm(props) {
         
         <Marginer direction="vertical" margin="1em" />
         
-        <Button type="submit" href="#">Sign in.</Button>
+        <Button type="btn">Sign in.</Button>
         <Marginer direction="vertical" margin=".5em"></Marginer>;
         <MutedLink href="#">Don't have an account? <BoldLink href="#" onClick={switchToSignup}>Sign up</BoldLink></MutedLink>
     </BoxContainer>

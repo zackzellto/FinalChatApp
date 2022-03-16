@@ -1,8 +1,8 @@
 import { Container, Col, Row, Button, Form } from "react-bootstrap";
 
-export function ChatAppUI () {
+export function ChatApp() {
   return (
-    <Container id="chat-app-ui">
+    <Container id="chat-app">
       <Row>
         <Col id="title-bar" md={12}>
           Chat App
@@ -33,6 +33,4 @@ export function ChatAppUI () {
       </Row>
     </Container>
   );
-};
-
-
+}

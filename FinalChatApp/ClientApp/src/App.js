@@ -1,9 +1,9 @@
 import "./App.css";
 import styled from "styled-components";
 import { AccountBox } from "./components/loginpage";
-import { ChatAppUI } from "./components/chatappui";
-import { BrowserRouter as Route, Routes } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+import { ChatApp } from "./components/chat-app";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { LoginForm } from "./components/loginpage/loginForm";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -18,10 +18,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <ChatAppUI />
-        {/* <AppContainer>
-          <AccountBox></AccountBox>
-        </AppContainer> */}
+        <AppContainer>
+          <AccountBox>
+            <BrowserRouter></BrowserRouter>
+          </AccountBox>
+        </AppContainer>
+        ß
       </header>
     </div>
   );

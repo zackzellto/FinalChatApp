@@ -22,13 +22,18 @@
 
 @media (max-width: 576px) {
   #title-bar {
-    color: #0d1f45;
+    color: #ffffff;
     font-weight: 900;
     border-radius: 16px;
     margin-bottom: 2%;
     width: 98%;
     margin-left: 1%;
-    background-color: white;
+    background: rgb(34, 193, 195);
+    background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(45, 185, 253, 1) 100%
+    );
 
     filter: drop-shadow(6px 6px 5px black);
   }
@@ -68,7 +73,7 @@
 
 @media (max-width: 768px) {
   #title-bar {
-    color: #0d1f45;
+    color: #ffffff;
     font-family: "Akaya Telivigala";
     font-size: 24;
     font-weight: 900;
@@ -76,8 +81,12 @@
     margin-bottom: 2%;
     width: 95%;
     margin-left: 2.5%;
-    background-color: white;
-
+    background: rgb(34, 193, 195);
+    background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(45, 185, 253, 1) 100%
+    );
     filter: drop-shadow(6px 6px 5px black);
   }
 
@@ -121,7 +130,7 @@
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 @media (min-width: 768px) {
   #title-bar {
-    color: #0d1f45;
+    color: #ffffff;
     font-family: "Akaya Telivigala";
     font-size: 24;
     font-weight: 900;
@@ -129,7 +138,12 @@
     margin-bottom: 2%;
     width: 98%;
     margin-left: 1%;
-    background-color: white;
+    background: rgb(34, 193, 195);
+    background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(45, 185, 253, 1) 100%
+    );
 
     filter: drop-shadow(6px 6px 5px black);
   }
@@ -172,7 +186,7 @@
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   #title-bar {
-    color: #0d1f45;
+    color: #ffffff;
     font-family: "Akaya Telivigala";
     font-size: 24;
     font-weight: 900;
@@ -180,7 +194,12 @@
     margin-bottom: 2%;
     width: 98%;
     margin-left: 1%;
-    background-color: white;
+    background: rgb(34, 193, 195);
+    background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(45, 185, 253, 1) 100%
+    );
 
     filter: drop-shadow(6px 6px 5px black);
   }
@@ -220,7 +239,7 @@
 
 @media (min-width: 1200px) {
   #title-bar {
-    color: #0d1f45;
+    color: #ffffff;
     font-family: "Akaya Telivigala";
     font-size: 24;
     font-weight: 900;
@@ -228,7 +247,12 @@
     margin-bottom: 2%;
     width: 98%;
     margin-left: 1%;
-    background-color: white;
+    background: rgb(34, 193, 195);
+    background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(45, 185, 253, 1) 100%
+    );
 
     filter: drop-shadow(6px 6px 5px black);
   }
@@ -270,7 +294,7 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1400px) {
   #title-bar {
-    color: #0d1f45;
+    color: #ffffff;
     font-family: "Akaya Telivigala";
     font-size: 24;
     font-weight: 900;
@@ -278,8 +302,12 @@
     margin-bottom: 2%;
     width: 98%;
     margin-left: 1%;
-    background-color: white;
-
+    background: rgb(34, 193, 195);
+    background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(45, 185, 253, 1) 100%
+    );
     filter: drop-shadow(6px 6px 5px black);
   }
 
