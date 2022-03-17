@@ -7,7 +7,7 @@ import { useContext } from "react"
 
 
 
-export function LoginForm(props) {
+ function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext)
   const { switchToApp } = useContext(AccountContext)
  
@@ -32,3 +32,5 @@ export function LoginForm(props) {
     </BoxContainer>
   )
 }
+
+export default LoginForm

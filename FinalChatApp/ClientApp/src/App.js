@@ -2,8 +2,7 @@ import "./App.css";
 import styled from "styled-components";
 import { AccountBox } from "./components/loginpage";
 import { ChatApp } from "./components/chat-app";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { LoginForm } from "./components/loginpage/loginForm";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -17,9 +16,7 @@ const AppContainer = styled.div`
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <AccountBox></AccountBox>
-      </header>
+      <header className="App-header"></header>
     </div>
   );
 }
