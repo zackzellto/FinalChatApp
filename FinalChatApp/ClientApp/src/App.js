@@ -16,7 +16,15 @@ const AppContainer = styled.div`
 function App() {
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <header className="App-header">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<AccountBox />}>
+              <Route index path="/chat" component={<ChatApp />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </header>
     </div>
   );
 }
