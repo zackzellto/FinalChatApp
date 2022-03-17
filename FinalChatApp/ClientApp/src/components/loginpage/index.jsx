@@ -8,6 +8,7 @@ import { SignUpForm } from "./signUpForm";
 import { ChatApp } from "../chat-app";
 
 
+
 const BoxContainer = styled.div`
 filter: drop-shadow(16px 16px 10px black);
   width: 480px;
@@ -161,6 +162,7 @@ export function AccountBox(props) {
             
             <HeaderText>ChatApp</HeaderText>
           </HeaderContainer>}
+          
           {active === "app" &&<HeaderContainer>
             
             <HeaderText>ChatApp</HeaderText>
@@ -169,6 +171,7 @@ export function AccountBox(props) {
         <InnerContainer>
           {active === "signin" && <LoginForm />}
           {active === "signup" && <SignUpForm />}
+          
           {active === "app" && <ChatApp />}
         </InnerContainer>
       </BoxContainer>
