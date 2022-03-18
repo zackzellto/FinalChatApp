@@ -233,13 +233,13 @@
     justify-content: end;
     width: 59.5%;
     position: relative;
-    top: 90px;
+    top: 80px;
     filter: drop-shadow(6px 6px 5px black);
   }
   .btn {
     width: 100px;
     position: relative;
-    top: 90px;
+    top: 80px;
     filter: drop-shadow(6px 6px 5px black);
   }
 
@@ -247,7 +247,7 @@
     height: 500px;
     width: 68.5%;
     position: relative;
-    top: 90px;
+    top: 80px;
     right: 19.3%;
     border-radius: 16px;
     background-color: white;

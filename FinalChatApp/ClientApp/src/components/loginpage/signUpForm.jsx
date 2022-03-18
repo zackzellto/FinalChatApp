@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 
-export function SignUpForm(props) {
+export default function SignUpForm(props) {
     const { switchToSignin } = useContext(AccountContext);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -51,7 +51,7 @@ export function SignUpForm(props) {
         <Marginer direction="vertical" margin="1em" />
         <Button type="submit" href="#" onClick={goToSignIn}>Sign up.</Button>
         <Marginer direction="vertical" margin=".5em"></Marginer>;
-        <MutedLink href="#">Have an account? <BoldLink href="#" onClick={goToSignIn}>Sign in</BoldLink></MutedLink>
+        <MutedLink href="#">Have an account? <BoldLink href="" onClick={goToSignIn}>Sign in</BoldLink></MutedLink>
     </BoxContainer>
   )
 }
