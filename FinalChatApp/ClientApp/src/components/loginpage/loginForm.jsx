@@ -18,6 +18,7 @@ import { useNavigate } from "react-router";
   function goToChatApp() {
     navigate("/chat")
   }
+  //Need to figure out how to tie above function into signin button
  
   
 
