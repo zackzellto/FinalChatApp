@@ -8,7 +8,7 @@ import { SignUpForm } from "./signUpForm";
 import { ChatApp } from "../chat-app";
 
 
-const BoxContainer = styled.div`
+export const BoxContainer = styled.div`
 filter: drop-shadow(16px 16px 10px black);
   width: 480px;
   min-height: 750px;
@@ -21,7 +21,7 @@ filter: drop-shadow(16px 16px 10px black);
   overflow: hidden;
 `;
 
-const BoxContainerUI = styled.div`
+export const BoxContainerUI = styled.div`
 filter: drop-shadow(16px 16px 10px black);
   width: px;
   min-height: 750px;
@@ -36,7 +36,7 @@ filter: drop-shadow(16px 16px 10px black);
 
 
 
-const TopContainer = styled.div`
+export const TopContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -46,7 +46,7 @@ const TopContainer = styled.div`
   padding-bottom: 5em;
 `;
 
-const BackDrop = styled(motion.div)`
+export const BackDrop = styled(motion.div)`
 width: 150%;
 height: 650px;  
 position: absolute;
@@ -61,13 +61,13 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(
 z-index: 10;
 `;
 
-const HeaderContainer = styled.div`
+export const HeaderContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
 `;
 
-const HeaderText = styled.h2`
+export const HeaderText = styled.h2`
 font-family: 'Akaya Telivigala';
   font-size: 100px;
   font-weight: 600;
@@ -81,14 +81,14 @@ font-family: 'Akaya Telivigala';
   filter: drop-shadow(6px 6px 5px black);
 `;
 
-const InnerContainer = styled.div`
+export const InnerContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   padding: 1em;
 `;
 
-const backdropVariants = {
+export const backdropVariants = {
   expanded: {
     width: "333%",
     height: "1300px",
@@ -103,7 +103,7 @@ const backdropVariants = {
   }
 };
 
-const expandingTransition ={
+export const expandingTransition ={
   type: "spring",
   duration: 2.3,
   stiffness: 30,

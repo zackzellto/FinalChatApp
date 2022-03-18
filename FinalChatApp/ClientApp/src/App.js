@@ -1,6 +1,6 @@
 import "./App.css";
 import styled from "styled-components";
-import { AccountBox } from "./components/loginpage";
+import { AccountBox } from "./components/loginpage/index.jsx";
 import { ChatApp } from "./components/chat-app";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginForm from "./components/loginpage/loginForm";
