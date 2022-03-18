@@ -5,8 +5,9 @@ import styled from "styled-components";
 
 export const BoxContainer = styled.div`
   filter: drop-shadow(16px 16px 10px black);
-  width: 480px;
-  min-height: 750px;
+  max-width: 90vw;
+  width: 1300px;
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
   border-radius: 16px;
@@ -36,7 +37,7 @@ export const BackDrop = styled(motion.div)`
   transform: rotate(60deg);
   top: -350px;
   left: -160px;
-  filter: drop-shadow(6px 6px 5px black);
+  filter: drop-shadow(36px 36px 35px black);
   background: linear-gradient(
     90deg,
     rgba(2, 0, 36, 1) 0%,
@@ -98,7 +99,7 @@ export function ChatApp() {
   const [isExpanded, setExpanded] = useState(false);
 
   return (
-    <BoxContainer style={{ width: "1300px" }}>
+    <BoxContainer>
       <TopContainer>
         <BackDrop
           initial={false}
@@ -107,7 +108,7 @@ export function ChatApp() {
           transition={expandingTransition}
         />
         <HeaderContainer>
-          <HeaderText>ChatApp</HeaderText>
+          <HeaderText id="header-text">ChatApp</HeaderText>
         </HeaderContainer>
         <InnerContainer>
           <Col id="conversations" md={{ span: 3, offset: 0 }}>

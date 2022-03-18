@@ -25,24 +25,9 @@
 }
 
 @media (max-width: 576px) {
-  #title-bar {
-    color: #ffffff;
-    font-weight: 900;
-    border-radius: 16px;
-    margin-bottom: 2%;
-    width: 98%;
-    margin-left: 1%;
-    background: rgb(34, 193, 195);
-    background: linear-gradient(
-      0deg,
-      rgba(34, 193, 195, 1) 0%,
-      rgba(45, 185, 253, 1) 100%
-    );
-
-    filter: drop-shadow(6px 6px 5px black);
-  }
-
   .btn {
+    position: relative;
+    top: 100px;
     filter: drop-shadow(6px 6px 5px black);
   }
 
@@ -77,32 +62,24 @@
 }
 
 @media (max-width: 768px) {
-  #title-bar {
-    color: #ffffff;
-    font-family: "Akaya Telivigala";
-    font-size: 24;
-    font-weight: 900;
-    border-radius: 16px;
-    margin-bottom: 2%;
-    width: 95%;
-    margin-left: 2.5%;
-    background: rgb(34, 193, 195);
-    background: linear-gradient(
-      0deg,
-      rgba(34, 193, 195, 1) 0%,
-      rgba(45, 185, 253, 1) 100%
-    );
-    filter: drop-shadow(6px 6px 5px black);
+  #header-text {
+    font-size: 60px;
   }
 
   .btn {
+    position: relative;
+    top: 70px;
+    width: 432px;
+    left: -10px;
     filter: drop-shadow(6px 6px 5px black);
   }
 
   #message-input {
     justify-content: end;
-    width: 100%;
-
+    width: 432px;
+    position: relative;
+    top: 70px;
+    left: -10px;
     margin-top: 2%;
     margin-bottom: -2%;
     filter: drop-shadow(6px 6px 5px black);
@@ -112,8 +89,8 @@
     height: 600px;
     width: 510px;
     position: relative;
-    left: 3%;
-
+    left: 0;
+    top: 70px;
     background-color: white;
     border-radius: 16px;
     filter: drop-shadow(6px 6px 5px black);
@@ -134,43 +111,29 @@
 
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 @media (min-width: 768px) {
-  #title-bar {
-    color: #ffffff;
-    font-family: "Akaya Telivigala";
-    font-size: 24;
-    font-weight: 900;
-    border-radius: 16px;
-    margin-bottom: 2%;
-    width: 98%;
-    margin-left: 1%;
-    background: rgb(34, 193, 195);
-    background: linear-gradient(
-      0deg,
-      rgba(34, 193, 195, 1) 0%,
-      rgba(45, 185, 253, 1) 100%
-    );
-
-    filter: drop-shadow(6px 6px 5px black);
-  }
-
   #message-input {
     justify-content: end;
-    width: 100%;
-
+    width: 700px;
+    position: relative;
+    top: 100px;
     margin-top: 2%;
     filter: drop-shadow(6px 6px 5px black);
   }
 
   .btn {
     margin-top: 2%;
+    position: relative;
+    width: 120px;
+    top: 100px;
     filter: drop-shadow(6px 6px 5px black);
   }
   #message-display {
     height: 600px;
-    width: 457px;
+    width: 550px;
     position: relative;
     right: 15%;
-
+    position: relative;
+    top: 90px;
     background-color: white;
     border-radius: 16px;
     filter: drop-shadow(6px 6px 5px black);
@@ -180,7 +143,7 @@
     position: absolute;
     top: 24.8%;
     height: 600px;
-    width: 227px;
+    width: 257px;
     background-color: white;
     border-radius: 16px;
 
@@ -190,41 +153,25 @@
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  #title-bar {
-    color: #ffffff;
-    font-family: "Akaya Telivigala";
-    font-size: 24;
-    font-weight: 900;
-    border-radius: 16px;
-    margin-bottom: 2%;
-    width: 98%;
-    margin-left: 1%;
-    background: rgb(34, 193, 195);
-    background: linear-gradient(
-      0deg,
-      rgba(34, 193, 195, 1) 0%,
-      rgba(45, 185, 253, 1) 100%
-    );
-
-    filter: drop-shadow(6px 6px 5px black);
-  }
-
   #message-input {
     justify-content: end;
-    width: 49.4%;
-
+    width: 53.7%;
+    position: relative;
+    top: 100px;
     filter: drop-shadow(6px 6px 5px black);
   }
   .btn {
     width: 100px;
+    position: relative;
+    top: 100px;
     filter: drop-shadow(6px 6px 5px black);
   }
   #message-display {
     height: 600px;
-    width: 580px;
+    width: 660px;
     position: relative;
-    right: 110px;
-
+    right: 155px;
+    top: 100px;
     background-color: white;
     border-radius: 16px;
     filter: drop-shadow(6px 6px 5px black);
@@ -234,7 +181,7 @@
     position: absolute;
     top: 25.2%;
     height: 668px;
-    width: 340px;
+    width: 320px;
     background-color: white;
     border-radius: 16px;
 
@@ -243,32 +190,16 @@
 }
 
 @media (min-width: 1200px) {
-  #title-bar {
-    color: #ffffff;
-    font-family: "Akaya Telivigala";
-    font-size: 24;
-    font-weight: 900;
-    border-radius: 16px;
-    margin-bottom: 2%;
-    width: 98%;
-    margin-left: 1%;
-    background: rgb(34, 193, 195);
-    background: linear-gradient(
-      0deg,
-      rgba(34, 193, 195, 1) 0%,
-      rgba(45, 185, 253, 1) 100%
-    );
-
-    filter: drop-shadow(6px 6px 5px black);
-  }
-
   #message-input {
     justify-content: end;
     width: 58.5%;
-
+    position: relative;
+    top: 100px;
     filter: drop-shadow(6px 6px 5px black);
   }
   .btn {
+    position: relative;
+    top: 100px;
     width: 100px;
     filter: drop-shadow(6px 6px 5px black);
   }
@@ -278,7 +209,7 @@
     width: 67.5%;
     position: relative;
     right: 18.5%;
-
+    top: 100px;
     background-color: white;
     border-radius: 16px;
     filter: drop-shadow(6px 6px 5px black);
@@ -298,40 +229,26 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1400px) {
-  #title-bar {
-    color: #ffffff;
-    font-family: "Akaya Telivigala";
-    font-size: 24;
-    font-weight: 900;
-    border-radius: 16px;
-    margin-bottom: 2%;
-    width: 98%;
-    margin-left: 1%;
-    background: rgb(34, 193, 195);
-    background: linear-gradient(
-      0deg,
-      rgba(34, 193, 195, 1) 0%,
-      rgba(45, 185, 253, 1) 100%
-    );
-    filter: drop-shadow(6px 6px 5px black);
-  }
-
   #message-input {
     justify-content: end;
-    width: 59.9%;
-
+    width: 59.5%;
+    position: relative;
+    top: 90px;
     filter: drop-shadow(6px 6px 5px black);
   }
   .btn {
     width: 100px;
+    position: relative;
+    top: 90px;
     filter: drop-shadow(6px 6px 5px black);
   }
 
   #message-display {
-    height: 600px;
-    width: 67.5%;
+    height: 500px;
+    width: 68.5%;
     position: relative;
-    right: 18.5%;
+    top: 90px;
+    right: 19.3%;
     border-radius: 16px;
     background-color: white;
 
@@ -339,10 +256,9 @@
   }
 
   #conversations {
-    position: absolute;
-    top: 25.2%;
-    height: 674px;
-    width: 378px;
+    height: 572px;
+    width: 320px;
+    margin-top: 20px;
     background-color: white;
     border-radius: 16px;
 
