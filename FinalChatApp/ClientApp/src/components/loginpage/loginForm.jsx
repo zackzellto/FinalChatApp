@@ -3,6 +3,10 @@ import { BoldLink, BoxContainer, FormContainer, Input, MutedLink, Button } from 
 import { Marginer } from "../marginer"
 import { AccountContext } from "./accountContext";
 import { useContext } from "react"
+import { ChatApp } from "../chat-app";
+import { useNavigate } from "react-router";
+
+
 
 
 
@@ -10,6 +14,10 @@ import { useContext } from "react"
  function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext)
   const { switchToApp } = useContext(AccountContext)
+  let navigate = useNavigate();
+  function goToChatApp() {
+    navigate("/chat")
+  }
  
   
 
@@ -26,7 +34,7 @@ import { useContext } from "react"
         
         <Marginer direction="vertical" margin="1em" />
       
-        <Button type="btn" onClick={switchToApp}>Sign in.</Button>
+        <Button type="btn" onClick={goToChatApp}>Sign in.</Button>
         <Marginer direction="vertical" margin=".5em"></Marginer>;
         <MutedLink href="#">Don't have an account? <BoldLink href="#" onClick={switchToSignup}>Sign up</BoldLink></MutedLink>
     </BoxContainer>
