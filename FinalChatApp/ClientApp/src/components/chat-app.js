@@ -16,7 +16,7 @@ const BoxContainer = styled.div`
 
 export function ChatApp() {
   return (
-    <BoxContainer id="app-container">
+    <BoxContainer style={{ width: "1300px" }}>
       <Col id="conversations" md={{ span: 3, offset: 0 }}>
         Conversation Panel
       </Col>

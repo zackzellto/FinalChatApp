@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { AccountBox } from "./components/loginpage";
 import { ChatApp } from "./components/chat-app";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginForm from "./components/loginpage/loginForm";
+import { SignUpForm } from "./components/loginpage/signUpForm";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -19,9 +21,9 @@ function App() {
       <header className="App-header">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<AccountBox />}>
-              <Route index path="/chat" component={<ChatApp />} />
-            </Route>
+            <Route path="/signin" element={<AccountBox />}></Route>
+            <Route path="/signup" element={<SignUpForm />}></Route>
+            <Route path="/chat" element={<ChatApp />} />
           </Routes>
         </BrowserRouter>
       </header>

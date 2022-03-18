@@ -4,6 +4,7 @@ import { Marginer } from "../marginer"
 import { useContext } from "react";
 import { AccountContext } from "./accountContext";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 
 export function SignUpForm(props) {
@@ -29,6 +30,11 @@ export function SignUpForm(props) {
       }
     }
 
+    let navigate = useNavigate();
+    function goToSignIn() {
+      navigate("/signin")
+    }
+
   return(
     <BoxContainer>
       <FormContainer onSubmit={submitSignUpForm}>
@@ -43,9 +49,9 @@ export function SignUpForm(props) {
       <Marginer direction="vertical" margin={10} />
         
         <Marginer direction="vertical" margin="1em" />
-        <Button type="submit" href="#" onClick={switchToSignin}>Sign up.</Button>
+        <Button type="submit" href="#" onClick={goToSignIn}>Sign up.</Button>
         <Marginer direction="vertical" margin=".5em"></Marginer>;
-        <MutedLink href="#">Have an account? <BoldLink href="#" onClick={switchToSignin}>Sign in</BoldLink></MutedLink>
+        <MutedLink href="#">Have an account? <BoldLink href="#" onClick={goToSignIn}>Sign in</BoldLink></MutedLink>
     </BoxContainer>
   )
 }

@@ -3,7 +3,6 @@ import { BoldLink, BoxContainer, FormContainer, Input, MutedLink, Button } from 
 import { Marginer } from "../marginer"
 import { AccountContext } from "./accountContext";
 import { useContext } from "react"
-import { ChatApp } from "../chat-app";
 import { useNavigate } from "react-router";
 
 
@@ -18,7 +17,7 @@ import { useNavigate } from "react-router";
   function goToChatApp() {
     navigate("/chat")
   }
-  //Need to figure out how to tie above function into signin button
+  //Need to figure out how to tie above function into siz
  
   
 
