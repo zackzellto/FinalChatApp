@@ -4,10 +4,10 @@ import { Marginer } from "../marginer"
 import { useContext } from "react";
 import { AccountContext } from "./accountContext";
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router-dom";
 
 
-export default function SignUpForm(props) {
+export function SignUpForm(props) {
     const { switchToSignin } = useContext(AccountContext);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -36,22 +36,21 @@ export default function SignUpForm(props) {
     }
 
   return(
-    <BoxContainer>
-      <FormContainer onSubmit={submitSignUpForm}>
-        <Marginer direction="vertical" margin="3em"></Marginer>
+<BoxContainer>
+<FormContainer>
+<Marginer direction="vertical" margin="3em"></Marginer>
         <Input type="username" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)}/>
         <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
         <Input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}/>
         <Input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)}/>
-        
-
-      </FormContainer>
-      <Marginer direction="vertical" margin={10} />
+</FormContainer>
+<Marginer direction="vertical" margin={10} />
         
         <Marginer direction="vertical" margin="1em" />
-        <Button type="submit" href="#" onClick={goToSignIn}>Sign up.</Button>
+       <Link to="/signin"><Button type="submit" href="#">Sign up.</Button></Link>
         <Marginer direction="vertical" margin=".5em"></Marginer>;
         <MutedLink href="#">Have an account? <BoldLink href="" onClick={goToSignIn}>Sign in</BoldLink></MutedLink>
-    </BoxContainer>
+</BoxContainer>
   )
 }
+

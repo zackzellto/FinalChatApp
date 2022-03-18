@@ -1,22 +1,9 @@
 import React from "react";
-import { BoldLink, BoxContainer, FormContainer, Input, MutedLink, Button } from "./sharedToForms";
+import { BoxContainer, FormContainer, Input, MutedLink, Button } from "./sharedToForms";
 import { Marginer } from "../marginer"
-import { AccountContext } from "./accountContext";
-import { useContext } from "react"
-import { useNavigate } from "react-router";
+import {  Link } from "react-router-dom";
 
  function LoginForm(props) {
-  const { switchToSignup } = useContext(AccountContext)
-
-  let navigate = useNavigate();
-
-  function goToChatApp() {
-    navigate("/chat")
-  }
-
-  function goToSignUp(){
-    navigate("/signup")
-  }
   
   return(
     <BoxContainer>
@@ -27,9 +14,9 @@ import { useNavigate } from "react-router";
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
         <Marginer direction="vertical" margin="1em" />
-        <Button type="btn" onClick={goToChatApp}>Sign in.</Button>
-        <Marginer direction="vertical" margin=".5em"></Marginer>;
-        <MutedLink href="#">Don't have an account? <BoldLink href="" onClick={goToSignUp}>Sign up</BoldLink></MutedLink>
+        <Link to="/chat"><Button style={{width: "400px"}} type="btn">Sign in.</Button></Link>
+        <Marginer direction="vertical" margin=".5em"></Marginer>
+        <MutedLink href="#">Don't have an account? <Link style={{ fontWeight: "700", color: "black"}} href="" to="/signup">Sign up</Link></MutedLink>
     </BoxContainer>
   )
 }

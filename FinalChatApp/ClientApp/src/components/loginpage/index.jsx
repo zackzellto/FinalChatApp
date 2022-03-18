@@ -4,7 +4,7 @@ import  LoginForm  from "./loginForm";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { AccountContext } from "./accountContext";
-import  SignUpForm  from "./signUpForm";
+import { SignUpForm } from "./signUpForm";
 
 
 
