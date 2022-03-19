@@ -11,7 +11,7 @@ function App() {
       <header className="App-header">
         <BrowserRouter>
           <Routes>
-            <Route path="/signin" element={<AccountBox />}></Route>
+            <Route path="/signin" element={<LoginForm />}></Route>
             <Route path="/signup" element={<SignUpForm />}></Route>
             <Route path="/chat" element={<ChatApp />} />
           </Routes>
