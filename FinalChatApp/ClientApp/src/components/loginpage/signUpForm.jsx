@@ -36,51 +36,51 @@ export function SignUpForm(props) {
   return (
     <BoxContainer>
       <TopContainer>
-        <BackDrop
-
-        />
+        <BackDrop id="signin-backdrop" />
         <HeaderContainer>
-          <HeaderText>ChatApp</HeaderText>
+          <HeaderText id="signin-header">ChatApp</HeaderText>
         </HeaderContainer>
 
         <InnerContainer>
           <FormContainer>
             <Marginer direction="vertical" margin="3em"></Marginer>
-            <Input
-              type="username"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <Input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <Input
-              type="password"
-              placeholder="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
+            <div id="signup-input-group">
+              <Input
+                type="username"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <Input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Input
+                type="password"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
           </FormContainer>
           <Marginer direction="vertical" margin={10} />
           <Marginer direction="vertical" margin="1em" />
           <Link to="/signin">
-            <Button type="submit" href="#">
+            <Button id="signup-btn" type="submit" href="#">
               Sign up.
             </Button>
           </Link>
           <Marginer direction="vertical" margin=".5em"></Marginer>;
-          <MutedLink href="#">
-            Have an account? <Link to="/signin">Sign in</Link>
+          <MutedLink id="signin-link" href="#">
+            Have an account? <Link style={{ fontWeight: "700", color: "black" }} to="/signin">Sign in</Link>
           </MutedLink>
         </InnerContainer>
       </TopContainer>

@@ -33,7 +33,7 @@ function LoginForm(props) {
           <Marginer direction="vertical" margin={10} />
           <Marginer direction="vertical" margin="1em" />
           <Link to="/chat">
-            <Button style={{ width: "400px" }} type="btn">
+            <Button id="signin-btn" style={{ width: "400px" }} type="btn">
               Sign in.
             </Button>
           </Link>
