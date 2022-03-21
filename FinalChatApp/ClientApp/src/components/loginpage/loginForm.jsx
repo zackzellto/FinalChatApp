@@ -16,14 +16,14 @@ function LoginForm(props) {
     <BoxContainer>
       <TopContainer>
         <BackDrop
-
+          id="signup-backdrop"
         />
-        <HeaderContainer>
+        <HeaderContainer id="signin-header" >
           <HeaderText>ChatApp</HeaderText>
         </HeaderContainer>
 
-        <InnerContainer>
-          <FormContainer>
+        <InnerContainer id="signin-input" >
+          <FormContainer id="signin-input-group">
             <Marginer direction="vertical" margin="4em"></Marginer>
             <Input type="username" placeholder="Username" />
             <Input type="password" placeholder="Password" />
@@ -38,7 +38,7 @@ function LoginForm(props) {
             </Button>
           </Link>
           <Marginer direction="vertical" margin=".5em"></Marginer>;
-          <MutedLink href="#">
+          <MutedLink id="signin-link" href="#">
             Don't have an account?{" "}
             <Link
               style={{ fontWeight: "700", color: "black" }}

@@ -34,9 +34,9 @@ export function SignUpForm(props) {
   };
 
   return (
-    <BoxContainer>
+    <BoxContainer id="signup-container" >
       <TopContainer>
-        <BackDrop id="signin-backdrop" />
+        <BackDrop id="signup-backdrop" />
         <HeaderContainer>
           <HeaderText id="signin-header">ChatApp</HeaderText>
         </HeaderContainer>
@@ -79,7 +79,7 @@ export function SignUpForm(props) {
             </Button>
           </Link>
           <Marginer direction="vertical" margin=".5em"></Marginer>;
-          <MutedLink id="signin-link" href="#">
+          <MutedLink id="signup-link" href="#">
             Have an account? <Link style={{ fontWeight: "700", color: "black" }} to="/signin">Sign in</Link>
           </MutedLink>
         </InnerContainer>

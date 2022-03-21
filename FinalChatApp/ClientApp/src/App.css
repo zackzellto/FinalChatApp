@@ -229,23 +229,24 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1400px) {
-  #signup-input-group {
+  /*SignIn Page Styling*/
+  #signin-input-group {
     width: 400px;
     position: relative;
-    top: 150px;
-    right: 68px;
+    top: 120px;
+    right: 50px;
   }
 
   #signin-link {
     position: relative;
-    top: 125px;
+    top: 120px;
   }
 
-  #signup-btn {
+  #signin-btn {
     width: 420px;
     position: relative;
-    top: 145px;
-    right: 60px;
+    top: 120px;
+    right: 50px;
   }
 
   #signin-backdrop {
@@ -272,6 +273,53 @@
     position: relative;
     right: 55px;
   }
+
+  /*SignUp Page Styling*/
+  #signup-input-group {
+    width: 400px;
+    position: relative;
+    top: 100px;
+    right: 68px;
+  }
+
+  #signup-link {
+    position: relative;
+    top: 120px;
+  }
+
+  #signup-btn {
+    width: 420px;
+    position: relative;
+    top: 120px;
+    right: 60px;
+  }
+
+  #signup-backdrop {
+    width: 150%;
+    height: 550px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30%;
+    transform: rotate(145deg);
+    top: -350px;
+    left: -160px;
+    filter: drop-shadow(6px 6px 5px black);
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(9, 9, 121, 1) 35%,
+      rgba(0, 212, 255, 1) 100%
+    );
+    z-index: 10;
+  }
+
+  #signup-header {
+    position: relative;
+    right: 55px;
+  }
+
+  /*ChatAppUI Styling*/
 
   #message-input {
     justify-content: end;
