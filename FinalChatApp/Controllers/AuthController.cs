@@ -83,10 +83,6 @@ namespace FinalChatApp.Controllers
 
             return jwt;
 
-
-#pragma warning disable CS0162 // Unreachable code detected
-            return string.Empty;
-#pragma warning restore CS0162 // Unreachable code detected
         }
 
         //Create the hash using the hmac cryptography algorithm
