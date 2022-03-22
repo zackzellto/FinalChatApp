@@ -51,25 +51,24 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthentication();
+
+app.UseStaticFiles();
+
+app.UseRouting();
 
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
-
-app.UseRouting();
-
 app.UseSpa(spa =>
 {
     spa.Options.SourcePath = "ClientApp";
-    if (app.Environment.IsDevelopment())
+   
     {
         spa.UseReactDevelopmentServer(npmScript: "start");
     }
-});
+}); 
 
 app.UseEndpoints(endpoints =>
 {
@@ -77,4 +76,7 @@ app.UseEndpoints(endpoints =>
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
+
+app.Run();
+
 
