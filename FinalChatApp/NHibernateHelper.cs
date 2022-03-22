@@ -1,11 +1,10 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using FinalChatApp.Mappings;
 
-namespace ReactChatApp
+namespace FinalChatApp
 {
     class NHibernateHelper
     {

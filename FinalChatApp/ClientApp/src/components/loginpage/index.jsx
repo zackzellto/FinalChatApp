@@ -1,15 +1,9 @@
-import React from "react";
 import styled from "styled-components";
-import  LoginForm  from "./loginForm";
+
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { AccountContext } from "./accountContext";
-import { SignUpForm } from "./signUpForm";
-
-
 
 export const BoxContainer = styled.div`
-filter: drop-shadow(16px 16px 10px black);
+  filter: drop-shadow(16px 16px 10px black);
   width: 480px;
   min-height: 750px;
   display: flex;
@@ -22,7 +16,7 @@ filter: drop-shadow(16px 16px 10px black);
 `;
 
 export const BoxContainerUI = styled.div`
-filter: drop-shadow(16px 16px 10px black);
+  filter: drop-shadow(16px 16px 10px black);
   width: px;
   min-height: 750px;
   display: flex;
@@ -33,8 +27,6 @@ filter: drop-shadow(16px 16px 10px black);
   position: relative;
   overflow: hidden;
 `;
-
-
 
 export const TopContainer = styled.div`
   width: 100%;
@@ -47,9 +39,9 @@ export const TopContainer = styled.div`
 `;
 
 export const BackDrop = styled(motion.div)`
-width: 150%;
-height: 650px;  
-position: absolute;
+  width: 150%;
+  height: 650px;
+  position: absolute;
   display: flex;
   flex-direction: column;
   border-radius: 30%;
@@ -57,8 +49,13 @@ position: absolute;
   top: -350px;
   left: -160px;
   filter: drop-shadow(6px 6px 5px black);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-z-index: 10;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  z-index: 10;
 `;
 
 export const HeaderContainer = styled.div`
@@ -68,7 +65,7 @@ export const HeaderContainer = styled.div`
 `;
 
 export const HeaderText = styled.h2`
-font-family: 'Akaya Telivigala';
+  font-family: "Akaya Telivigala";
   font-size: 100px;
   font-weight: 600;
   line-height: 1.24;
@@ -99,13 +96,12 @@ export const backdropVariants = {
     width: "125%",
     height: "650px",
     borderRadius: "60%",
-    transform: "rotate(60deg)"
-  }
+    transform: "rotate(60deg)",
+  },
 };
 
-export const expandingTransition ={
+export const expandingTransition = {
   type: "spring",
   duration: 2.3,
   stiffness: 30,
 };
-
