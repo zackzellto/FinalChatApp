@@ -16,7 +16,7 @@ namespace FinalChatApp.Controllers
         static List<MessagesModel> messages = new List<MessagesModel>();
 
         // GET: api/Messages
-        [HttpGet("messages")]
+        [HttpGet]
         public async Task<IEnumerable<MessagesModel>> Get()
         {
             var DBConnString = "Server=localhost;Port=5432;Database=ReactChatApp;User Id=postgres;Password=postgres;";
