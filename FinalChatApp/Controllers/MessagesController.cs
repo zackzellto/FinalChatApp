@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FinalChatApp.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Npgsql;
 
 namespace FinalChatApp.Controllers
 {
@@ -11,36 +13,43 @@ namespace FinalChatApp.Controllers
     [ApiController]
     public class MessagesController : ControllerBase
     {
+        static List<MessagesModel> messages = new List<MessagesModel>();
+
         // GET: api/Messages
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [HttpGet("messages")]
+        public async Task<IEnumerable<MessagesModel>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var DBConnString = "Server=localhost;Port=5432;Database=ReactChatApp;User Id=postgres;Password=postgres;";
+
+            await using var conn = new NpgsqlConnection(DBConnString);
+            await conn.OpenAsync();
+
+            await using (var cmd = new NpgsqlCommand("SELECT * FROM messages", conn))
+            await using (var reader = await cmd.ExecuteReaderAsync())
+            {
+                var messages = new List<MessagesModel>();
+                while (await reader.ReadAsync())
+                {
+                    var message = new MessagesModel()
+                    {
+                        username = reader.GetString(0),
+                        message_id = reader.GetInt64(1),
+                        message = reader.GetString(2),
+                        date_time = reader.GetDateTime(3)
+                    };
+                    messages.Add(message);
+                }
+            }
+
+            return messages;
         }
 
-        // GET: api/Messages/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
 
         // POST: api/Messages
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] MessagesModel message)
         {
-        }
-
-        // PUT: api/Messages/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/Messages/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            messages.Add(message);
         }
     }
 }

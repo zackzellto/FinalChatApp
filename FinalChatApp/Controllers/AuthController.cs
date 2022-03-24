@@ -29,7 +29,7 @@ namespace FinalChatApp.Controllers
 
         //Register request
         [HttpPost("register")]
-        public async Task<ActionResult<User>> Register(UserRegisterAndLogin request)
+        public ActionResult<User> Register(UserRegisterAndLogin request)
         {
             CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
@@ -40,17 +40,17 @@ namespace FinalChatApp.Controllers
             return Ok(user);
         }
 
-      
+
         //Login request
         [HttpPost("login")]
-        public async Task<ActionResult<string>> Login(UserRegisterAndLogin request)
+        public ActionResult<string> Login(UserRegisterAndLogin request)
         {
-            if(user.Username != request.Username)
+            if (user.Username != request.Username)
             {
                 return BadRequest("User not found.");
             }
 
-            if(!VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
+            if (!VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
             {
                 return BadRequest("Wrong Password.");
             }
