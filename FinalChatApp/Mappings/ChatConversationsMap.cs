@@ -12,9 +12,9 @@ namespace FinalChatApp.Mappings
     {
         public ChatConversationsMap()
         {
-            Id(x => x.conversation_id);
-            Map(x => x.created_at);
-            Map(x => x.conversation_users);
+            Id(x => x.Conversation_id);
+            Map(x => x.Created_at);
+            Map(x => x.Conversation_users);
             Table("conversations");
         }
     }

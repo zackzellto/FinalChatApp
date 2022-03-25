@@ -12,10 +12,9 @@ namespace FinalChatApp.Mappings
     {
         public ChatMessagesMap()
         {
-            Id(x => x.username);
-            Id(x => x.message_id);
-            Map(x => x.message);
-            Map(x => x.date_time);
+            Id(x => x.Username);
+            Map(x => x.Message);
+            Map(x => x.Date_time);
             Table("messages");
         }
     }

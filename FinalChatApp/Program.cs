@@ -63,6 +63,9 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.Run();
+
+
 app.UseSpa(spa =>
 {
     spa.Options.SourcePath = "ClientApp";
@@ -79,6 +82,5 @@ app.UseEndpoints(endpoints =>
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 
-app.Run();
 
 

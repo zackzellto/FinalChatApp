@@ -32,10 +32,9 @@ namespace FinalChatApp.Controllers
                 {
                     var message = new MessagesModel()
                     {
-                        username = reader.GetString(0),
-                        message_id = reader.GetInt64(1),
-                        message = reader.GetString(2),
-                        date_time = reader.GetDateTime(3)
+                        Username = reader.GetString(0),
+                        Message = reader.GetString(1),
+                        Date_time = reader.GetDateTime(2)
                     };
                     messages.Add(message);
                 }
