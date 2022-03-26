@@ -12,6 +12,7 @@ namespace FinalChatApp.Mappings
     {
         public ChatMessagesMap()
         {
+            Id(x => x.Id);
             Id(x => x.Username);
             Map(x => x.Message);
             Map(x => x.Date_time);

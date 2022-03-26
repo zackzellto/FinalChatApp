@@ -2,14 +2,15 @@
 using FluentNHibernate.Mapping;
 using System; 
 using System.Collections.Generic; 
-using System.Linq; using System.Text; 
+using System.Linq;
+using System.Text; 
 using System.Threading.Tasks;
 
 namespace FinalChatApp.Mappings
 {
-    class UserRegisterLoginMap : ClassMap<UserRegisterAndLogin>
+    class UserMap : ClassMap<User>
     {
-        public UserRegisterLoginMap()
+        public UserMap()
         {
             Id(x => x.Id);
             Map(x => x.Username);

@@ -5,7 +5,7 @@
 -- Dumped from database version 14.2
 -- Dumped by pg_dump version 14.2
 
--- Started on 2022-03-25 09:12:23 MDT
+-- Started on 2022-03-25 14:34:30 MDT
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,7 +19,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 3586 (class 1262 OID 16439)
+-- TOC entry 3585 (class 1262 OID 16439)
 -- Name: ReactChatApp; Type: DATABASE; Schema: -; Owner: postgres
 --
 
@@ -46,77 +46,70 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 211 (class 1259 OID 16455)
+-- TOC entry 212 (class 1259 OID 24673)
 -- Name: conversations; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.conversations (
-    conversation_id integer NOT NULL,
-    created_at timestamp with time zone,
-    conversation_users text
+    id integer NOT NULL,
+    users character varying(255) NOT NULL
 );
 
 
 ALTER TABLE public.conversations OWNER TO postgres;
 
 --
--- TOC entry 210 (class 1259 OID 16448)
--- Name: messages; Type: TABLE; Schema: public; Owner: postgres
+-- TOC entry 211 (class 1259 OID 24672)
+-- Name: conversations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.messages (
-    message_id bigint NOT NULL,
-    message text,
-    username text,
-    date_time time with time zone
-);
+CREATE SEQUENCE public.conversations_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
 
 
-ALTER TABLE public.messages OWNER TO postgres;
-
---
--- TOC entry 209 (class 1259 OID 16441)
--- Name: users; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.users (
-    id integer NOT NULL,
-    username text,
-    email text NOT NULL,
-    password text NOT NULL
-);
-
-
-ALTER TABLE public.users OWNER TO postgres;
+ALTER TABLE public.conversations_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3441 (class 2606 OID 16461)
+-- TOC entry 3587 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: conversations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.conversations_id_seq OWNED BY public.conversations.id;
+
+
+--
+-- TOC entry 3438 (class 2604 OID 24676)
+-- Name: conversations id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.conversations ALTER COLUMN id SET DEFAULT nextval('public.conversations_id_seq'::regclass);
+
+
+--
+-- TOC entry 3440 (class 2606 OID 24678)
 -- Name: conversations conversations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.conversations
-    ADD CONSTRAINT conversations_pkey PRIMARY KEY (conversation_id);
+    ADD CONSTRAINT conversations_pkey PRIMARY KEY (id);
 
 
 --
--- TOC entry 3439 (class 2606 OID 16447)
--- Name: users user_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.users
-    ADD CONSTRAINT user_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 3587 (class 0 OID 0)
--- Dependencies: 3586
+-- TOC entry 3586 (class 0 OID 0)
+-- Dependencies: 3585
 -- Name: DATABASE "ReactChatApp"; Type: ACL; Schema: -; Owner: postgres
 --
 
 GRANT ALL ON DATABASE "ReactChatApp" TO zack;
 
 
--- Completed on 2022-03-25 09:12:23 MDT
+-- Completed on 2022-03-25 14:34:30 MDT
 
 --
 -- PostgreSQL database dump complete
