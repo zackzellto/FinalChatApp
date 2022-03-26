@@ -47,7 +47,7 @@ namespace FinalChatApp
                         .UseSecondLevelCache()
                         .ProviderClass<NHibernate.Cache.HashtableCacheProvider>())
                 
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserRegisterLoginMap>())
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserMap>())
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ChatMessagesMap>())
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ChatConversationsMap>())
                 .Mappings(m => m.FluentMappings.AddFromAssembly(Assembly.GetExecutingAssembly()))

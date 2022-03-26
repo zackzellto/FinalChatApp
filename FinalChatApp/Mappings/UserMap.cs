@@ -14,7 +14,8 @@ namespace FinalChatApp.Mappings
         {
             Id(x => x.Id);
             Map(x => x.Username);
-            Map(x => x.Password);
+            Map(x => x.PasswordHash);
+            Map(x => x.PasswordSalt);
             Table("users");
         }
     }
