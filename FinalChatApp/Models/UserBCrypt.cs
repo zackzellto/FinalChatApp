@@ -7,7 +7,7 @@ namespace FinalChatApp.Models
 
 		public virtual string Username { get; set; } = string.Empty;
 
-		public virtual string Password { get; private set; }
+		public virtual string Password { get; set; }
     }
 }
 

@@ -16,7 +16,7 @@ namespace FinalChatApp.Controllers
         private List<UserBCrypt> usersBCrypt = new();
         // GET: api/User
         [HttpGet]
-        public async Task<IEnumerable<UserBCrypt>> GetAsync(string Username, string Password)
+        public async Task<IEnumerable<UserBCrypt>> GetAsync(int Id, string Username, string Password)
         {
             var DBConnString = "Server=localhost;Port=5432;Database=ReactChatApp;User Id=postgres;Password=postgres;";
             var command = "SELECT * FROM public.users WHERE username=@username AND password=password";
@@ -52,29 +52,39 @@ namespace FinalChatApp.Controllers
                     {
                         var user = new UserBCrypt();
                         {
-                            Id = reader.GetInt32(0),
-                            Username = reader.GetString(1),
-                            Password = reader.GetString(2)
+                            Id = reader.GetInt32(0);
+                            Username = reader.GetString(1);
+                            Password = reader.GetString(2);
                         };
 
+                        usersBCrypt.Add(user);
                     }
                 }
             }
+            return users;
         }
 
         
 
         // GET: api/User/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public int Get(int Id)
         {
-            return "value";
+            return Id;
         }
 
         // POST: api/User
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] UserBCrypt user)
         {
+            var isLoggedIn = new UserBCrypt()
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Password = user.Password
+            };
+            usersBCrypt.Add(isLoggedIn);
+
         }
 
     }

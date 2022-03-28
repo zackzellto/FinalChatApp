@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
-  <session-factory>
+  <session-factory name="Development">
     <property name="connection.provider">
       NHibernate.Connection.DriverConnectionProvider
     </property>
@@ -13,5 +13,9 @@
     <property name="dialect">
       NHibernate.Dialect.PostgreSQLDialect
     </property>
+
+    <mapping assembly="Datalayer" />
   </session-factory>
+
+
 </hibernate-configuration>

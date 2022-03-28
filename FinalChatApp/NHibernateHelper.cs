@@ -32,12 +32,15 @@ namespace FinalChatApp
 
         public static ISessionFactory FluentConfigure()
         {
+
+            var PostgreSQLDBConnection = "Server=localhost;Port=5432;Database=ReactChatApp;User Id=postgres;Password=postgres;";
+
             return Fluently.Configure()
 
                 .Database(
                     PostgreSQLConfiguration.PostgreSQL82
                         .ConnectionString(
-                            cs => cs.Is("PostgreSQLDBConnection"))
+                            cs => cs.Is(PostgreSQLDBConnection))
                             .Raw("hbm2ddl.keywords", "none")
                             .ShowSql()
                         )
