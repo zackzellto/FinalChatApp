@@ -19,6 +19,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="6.1.0" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="NHibernate.XFactories" Version="5.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +35,7 @@
     <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <None Remove="Swashbuckle.AspNetCore.Filters" />
     <None Remove="BCrypt.Net-Next" />
+    <None Remove="NHibernate.XFactories" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

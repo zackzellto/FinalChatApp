@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Npgsql;
-using NHibernate.Cfg;
+using NHibernate;
+using NHibernate.XFactories;
 using Swashbuckle.AspNetCore.Filters;
 
 
@@ -18,6 +19,8 @@ builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+
 
 //Add jwt authorization in swagger to confirm token auth
 builder.Services.AddSwaggerGen(options =>
@@ -87,8 +90,10 @@ app.UseEndpoints(endpoints =>
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 
+
+
 NHibernate.Cfg.Configuration config = new NHibernate.Cfg.Configuration();
-config.Configure("./nhibernate.cfg.xml", "Development").BuildSessionFactory();
+config.Configure("~/nhibernate.cfg.xml", "Development").BuildSessionFactory();
 
 //var nhConfig = new NHibernate.Cfg.Configuration().Configure();
 //var sessionFactory = nhConfig.BuildSessionFactory();
