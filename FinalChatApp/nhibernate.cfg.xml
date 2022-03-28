@@ -8,7 +8,7 @@
       NHibernate.Driver.NpgsqlDriver
     </property>
     <property name="connection.connection_string">
-      Server=Host=localhost;port=5432;database=ReactChatApp;User Id=postgres;password=postgres;
+      Server=localhost;port=5432;database=ReactChatApp;User Id=postgres;password=postgres;
     </property>
     <property name="dialect">
       NHibernate.Dialect.PostgreSQLDialect

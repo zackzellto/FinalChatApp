@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace FinalChatApp.Mappings
 {
-    class UserMap : ClassMap<User>
+    class UserMap : ClassMap<UserBCrypt>
     {
         public UserMap()
         {
             Id(x => x.Id);
             Map(x => x.Username);
-            Map(x => x.PasswordHash);
-            Map(x => x.PasswordSalt);
+            Map(x => x.Password);
             Table("users");
         }
     }

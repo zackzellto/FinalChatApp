@@ -87,9 +87,9 @@ app.UseEndpoints(endpoints =>
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 
-var nhConfig = new NHibernate.Cfg.Configuration().Configure();
-var sessionFactory = nhConfig.BuildSessionFactory();
-Console.WriteLine("NHibernate Configured!");
-Console.ReadKey();
+//var nhConfig = new NHibernate.Cfg.Configuration().Configure();
+//var sessionFactory = nhConfig.BuildSessionFactory();
+//Console.WriteLine("NHibernate Configured!");
+//Console.ReadKey();
 
 

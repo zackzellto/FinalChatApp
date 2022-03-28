@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FinalChatApp.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Npgsql;
 
 namespace FinalChatApp.Controllers
 {
@@ -11,12 +13,56 @@ namespace FinalChatApp.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private List<UserBCrypt> usersBCrypt = new();
         // GET: api/User
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IEnumerable<UserBCrypt>> GetAsync(string Username, string Password)
         {
-            return new string[] { "value1", "value2" };
+            var DBConnString = "Server=localhost;Port=5432;Database=ReactChatApp;User Id=postgres;Password=postgres;";
+            var command = "SELECT * FROM public.users WHERE username=@username AND password=password";
+            var users = new List<UserBCrypt>();
+
+            await using var conn = new NpgsqlConnection(DBConnString);
+            await conn.OpenAsync();
+
+            NpgsqlParameter usrname = new()
+            {
+                ParameterName = "@username",
+                NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar,
+                Direction = System.Data.ParameterDirection.Input,
+                Value = Username
+            };
+
+            NpgsqlParameter usrname2 = new()
+            {
+                ParameterName = "@password",
+                NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar,
+                Direction = System.Data.ParameterDirection.Input,
+                Value = Password
+            };
+
+
+            await using (var cmd = new NpgsqlCommand(command, conn))
+            {
+                cmd.Parameters.Add(usrname);
+                cmd.Parameters.Add(usrname2);
+                await using (var reader = await cmd.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        var user = new UserBCrypt();
+                        {
+                            Id = reader.GetInt32(0),
+                            Username = reader.GetString(1),
+                            Password = reader.GetString(2)
+                        };
+
+                    }
+                }
+            }
         }
+
+        
 
         // GET: api/User/5
         [HttpGet("{id}", Name = "Get")]

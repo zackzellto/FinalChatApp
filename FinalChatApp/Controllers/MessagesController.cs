@@ -13,7 +13,7 @@ namespace FinalChatApp.Controllers
     [ApiController]
     public class MessagesController : ControllerBase
     {
-        static List<MessagesModel> messages = new List<MessagesModel>();
+        static List<MessagesModel> messages = new();
 
         // GET: api/Messages
         [HttpGet]
