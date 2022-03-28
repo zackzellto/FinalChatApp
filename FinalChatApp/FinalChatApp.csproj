@@ -36,6 +36,7 @@
     <None Remove="Swashbuckle.AspNetCore.Filters" />
     <None Remove="BCrypt.Net-Next" />
     <None Remove="NHibernate.XFactories" />
+    <None Remove="sql_backups\backup.sql" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
