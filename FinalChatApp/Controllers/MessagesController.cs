@@ -81,6 +81,38 @@ namespace FinalChatApp.Controllers
             }
             return new JsonResult("Entry added successfully!");
         }
+
+        // PUT: api/Messages
+        [HttpPut]
+
+        public JsonResult Put(MessagesModel msg)
+        {
+            string messagesQuery = @"
+                UPDATE messages
+                SET username = @username
+                SET messages = @messages
+                WHERE id = @id
+            ";
+            DataTable table = new DataTable();
+            string DBConnectionString = _configuration.GetConnectionString("DBConnectionString");
+            NpgsqlDataReader messageReader;
+            using (NpgsqlConnection messageConnection = new NpgsqlConnection(DBConnectionString))
+            {
+                messageConnection.Open();
+                using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
+                {
+                    messageCommand.Parameters.AddWithValue("@id", msg.Id);
+                    messageCommand.Parameters.AddWithValue("@username", msg.Username);
+                    messageCommand.Parameters.AddWithValue("@message", msg.Message);
+                    messageReader = messageCommand.ExecuteReader();
+                    table.Load(messageReader);
+                    
+                    messageReader.Close();
+                    messageConnection.Close();
+                }
+            }
+            return new JsonResult("Entry updated successfully!");
+        }
     }
 }
             
