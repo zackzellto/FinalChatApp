@@ -19,7 +19,7 @@ namespace FinalChatApp.Controllers
 
     public class AuthController : ControllerBase
     {
-        public static User user = new User();
+        public static User user = new();
         private readonly IConfiguration _configuration;
 
         public AuthController(IConfiguration configuration)
@@ -62,7 +62,7 @@ namespace FinalChatApp.Controllers
         //Create JWT
         private string CreateToken(User user)
         {
-            List<Claim> claims = new List<Claim>
+            List<Claim> claims = new()
             {
 
                 new Claim(ClaimTypes.Name, user.Username),
