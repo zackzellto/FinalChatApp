@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace FinalChatApp.Controllers
 {
@@ -35,20 +37,21 @@ namespace FinalChatApp.Controllers
                         date_time as ""Date_time""
                 FROM messages";
 
-            DataTable table = new DataTable();
+            DataTable table = new DataTable(); 
             string DBConnectionString = _configuration.GetConnectionString("DBConnectionString");
             NpgsqlDataReader messageReader;
-            using NpgsqlConnection messageConnection = new NpgsqlConnection(DBConnectionString);
-            messageConnection.Open();
-            using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
+            using (NpgsqlConnection messageConnection = new NpgsqlConnection(DBConnectionString))
             {
-                messageReader = messageCommand.ExecuteReader();
+                messageConnection.Open();
+                using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
+            {
+                    messageReader = messageCommand.ExecuteReader();
                 table.Load(messageReader);
 
-                messageReader.Close();
+                    messageReader.Close();
                 messageConnection.Close();
-            }
-
+                }
+             }
             return new JsonResult(table);
         }
     }

@@ -8,11 +8,27 @@ using Npgsql;
 using NHibernate;
 using NHibernate.XFactories;
 using Swashbuckle.AspNetCore.Filters;
-
+using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+
+//Enable CORS
+builder.Services.AddCors(c =>
+    {
+        c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+    });
+
+
+    //JSON Serializer
+    builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+        .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
+        = new DefaultContractResolver());
+
+    builder.Services.AddControllers();
 
 builder.Services.AddControllers();
 
@@ -51,6 +67,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 var app = builder.Build();
 
 
+//Enable CORS
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -77,11 +95,11 @@ app.Run();
 app.UseSpa(spa =>
 {
     spa.Options.SourcePath = "ClientApp";
-   
+
     {
         spa.UseReactDevelopmentServer(npmScript: "start");
     }
-}); 
+});
 
 app.UseEndpoints(endpoints =>
 {
@@ -99,5 +117,4 @@ config.Configure("~/nhibernate.cfg.xml", "Development").BuildSessionFactory();
 //var sessionFactory = nhConfig.BuildSessionFactory();
 //Console.WriteLine("NHibernate Configured!");
 //Console.ReadKey();
-
 
