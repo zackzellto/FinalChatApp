@@ -23,11 +23,9 @@ namespace FinalChatApp.Controllers
             _configuration = configuration;
         }
 
-        //static List<MessagesModel> messages = new();
-
         // GET: api/Messages
         [HttpGet]
-        //public async Task<IEnumerable<MessagesModel>> GetAsync(int Id, string Username, string Message, DateTime Date_time)
+      
         public JsonResult Get()
         {
             string messagesQuery = @"
@@ -54,38 +52,39 @@ namespace FinalChatApp.Controllers
              }
             return new JsonResult(table);
         }
+
+        // POST: api/Messages
+        [HttpPost]
+      
+        public JsonResult Post(MessagesModel msg)
+        {
+            string messagesQuery = @"
+                INSERT INTO messages (username, message)
+                VALUES (@username, @message)
+            ";
+            DataTable table = new DataTable();
+            string DBConnectionString = _configuration.GetConnectionString("DBConnectionString");
+            NpgsqlDataReader messageReader;
+            using (NpgsqlConnection messageConnection = new NpgsqlConnection(DBConnectionString))
+            {
+                messageConnection.Open();
+                using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
+                {
+                    messageCommand.Parameters.AddWithValue("@username", msg.Username);
+                    messageCommand.Parameters.AddWithValue("@message", msg.Message);
+                    messageReader = messageCommand.ExecuteReader();
+                    table.Load(messageReader);
+
+                    messageReader.Close();
+                    messageConnection.Close();
+                }
+            }
+            return new JsonResult("Entry added successfully!");
+        }
     }
 }
             
-        //    await using var conn = new NpgsqlConnection(DBConnString);
-        //    await conn.OpenAsync();
-
-        //    await using (var cmd = new NpgsqlCommand("SELECT * FROM messages", conn))
-        //    await using (var reader = await cmd.ExecuteReaderAsync())
-        //    {
-        //        var messages = new List<MessagesModel>();
-        //        while (await reader.ReadAsync())
-        //        {
-        //            var message = new MessagesModel()
-        //            {
-        //                Id = reader.GetInt32(0),
-        //                Username = reader.GetString(1),
-        //                Message = reader.GetString(2),
-        //                Date_time = reader.GetDateTime(3)
-        //            };
-        //            messages.Add(message);
-        //        }
-        //    }
-
-        //    return messages;
-        //}
+     
 
 
-        // POST: api/Messages
-        //[HttpPost]
-        //public void Post([FromBody] MessagesModel message)
-        //{
-        //    messages.Add(message);
-        //}
-    //}
-//}
+      
