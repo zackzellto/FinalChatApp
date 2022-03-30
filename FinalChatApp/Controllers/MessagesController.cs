@@ -114,6 +114,35 @@ namespace FinalChatApp.Controllers
             }
             return new JsonResult("Entry updated successfully!");
         }
+
+        // DELETE: api/Messages
+        [HttpDelete]
+
+        public JsonResult Delete(int id)
+        {
+            string messagesQuery = @"
+                DELETE FROM messages
+                WHERE id = @id
+            ";
+            DataTable table = new DataTable();
+            string DBConnectionString = _configuration.GetConnectionString("DBConnectionString");
+            NpgsqlDataReader messageReader;
+            using (NpgsqlConnection messageConnection = new NpgsqlConnection(DBConnectionString))
+            {
+                messageConnection.Open();
+                using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
+                {
+
+                    messageCommand.Parameters.AddWithValue("@id", value: id);
+                    messageReader = messageCommand.ExecuteReader();
+                    table.Load(messageReader);
+
+                    messageReader.Close();
+                    messageConnection.Close();
+                }
+            }
+            return new JsonResult("Entry deleted successfully!");
+        }
     }
 }
             
