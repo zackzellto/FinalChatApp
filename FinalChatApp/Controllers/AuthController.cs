@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -11,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Npgsql;
 
 namespace FinalChatApp.Controllers
 {
@@ -25,6 +27,37 @@ namespace FinalChatApp.Controllers
         public AuthController(IConfiguration configuration)
         {
             _configuration = configuration;
+        }
+
+        // POST: api/Users
+        [HttpPost]
+
+        public JsonResult Post(UserRegisterAndLogin usr)
+        {
+            string usersQuery = @"
+                INSERT INTO users (id, user, email, password)
+                VALUES (@id, @user, @email, @password)
+            ";
+            DataTable table = new DataTable();
+            string DBConnectionString = _configuration.GetConnectionString("DBConnectionString");
+            NpgsqlDataReader usersReader;
+            using (NpgsqlConnection usersConnection = new NpgsqlConnection(DBConnectionString))
+            {
+                usersConnection.Open();
+                using (NpgsqlCommand usersCommand = new(usersQuery, usersConnection))
+                {
+                    usersCommand.Parameters.AddWithValue("@id", value: usr.Id);
+                    usersCommand.Parameters.AddWithValue("@username", value: usr.Username);
+                    usersCommand.Parameters.AddWithValue("@email", value: usr.Email);
+                    usersCommand.Parameters.AddWithValue("@message", value: usr.Password);
+                    usersReader = usersCommand.ExecuteReader();
+                    table.Load(usersReader);
+
+                    usersReader.Close();
+                    usersConnection.Close();
+                }
+            }
+            return new JsonResult("User Registered Successfully!");
         }
 
         //Register request
