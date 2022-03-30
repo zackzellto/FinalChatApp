@@ -70,8 +70,8 @@ namespace FinalChatApp.Controllers
                 messageConnection.Open();
                 using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
                 {
-                    messageCommand.Parameters.AddWithValue("@username", msg.Username);
-                    messageCommand.Parameters.AddWithValue("@message", msg.Message);
+                    messageCommand.Parameters.AddWithValue("@username", value: msg.Username);
+                    messageCommand.Parameters.AddWithValue("@message", value: msg.Message);
                     messageReader = messageCommand.ExecuteReader();
                     table.Load(messageReader);
 
@@ -89,8 +89,7 @@ namespace FinalChatApp.Controllers
         {
             string messagesQuery = @"
                 UPDATE messages
-                SET username = @username
-                SET messages = @messages
+                SET username = @username, message = @message, date_time = now()
                 WHERE id = @id
             ";
             DataTable table = new DataTable();
@@ -101,9 +100,11 @@ namespace FinalChatApp.Controllers
                 messageConnection.Open();
                 using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
                 {
-                    messageCommand.Parameters.AddWithValue("@id", msg.Id);
-                    messageCommand.Parameters.AddWithValue("@username", msg.Username);
-                    messageCommand.Parameters.AddWithValue("@message", msg.Message);
+                    
+                    messageCommand.Parameters.AddWithValue("@username", value: msg.Username);
+                    messageCommand.Parameters.AddWithValue("@message", value: msg.Message);
+                    messageCommand.Parameters.AddWithValue("@id", value: msg.Id);
+                    messageCommand.Parameters.AddWithValue("@date_time", value: msg.Date_time);
                     messageReader = messageCommand.ExecuteReader();
                     table.Load(messageReader);
                     
