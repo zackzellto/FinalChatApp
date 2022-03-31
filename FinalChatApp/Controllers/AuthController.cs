@@ -35,8 +35,8 @@ namespace FinalChatApp.Controllers
         public JsonResult Post(UserRegisterAndLogin usr)
         {
             string usersQuery = @"
-                INSERT INTO users (id, user, email, password)
-                VALUES (@id, @user, @email, @password)
+                INSERT INTO users (id, user, password)
+                VALUES (@id, @user, @password)
             ";
             DataTable table = new DataTable();
             string DBConnectionString = _configuration.GetConnectionString("DBConnectionString");
@@ -48,7 +48,6 @@ namespace FinalChatApp.Controllers
                 {
                     usersCommand.Parameters.AddWithValue("@id", value: usr.Id);
                     usersCommand.Parameters.AddWithValue("@username", value: usr.Username);
-                    usersCommand.Parameters.AddWithValue("@email", value: usr.Email);
                     usersCommand.Parameters.AddWithValue("@message", value: usr.Password);
                     usersReader = usersCommand.ExecuteReader();
                     table.Load(usersReader);

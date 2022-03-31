@@ -89,7 +89,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+
 
 
 app.UseSpa(spa =>
@@ -108,13 +108,4 @@ app.UseEndpoints(endpoints =>
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 
-
-
-NHibernate.Cfg.Configuration config = new NHibernate.Cfg.Configuration();
-config.Configure("~/nhibernate.cfg.xml", "Development").BuildSessionFactory();
-
-//var nhConfig = new NHibernate.Cfg.Configuration().Configure();
-//var sessionFactory = nhConfig.BuildSessionFactory();
-//Console.WriteLine("NHibernate Configured!");
-//Console.ReadKey();
-
+app.Run();
