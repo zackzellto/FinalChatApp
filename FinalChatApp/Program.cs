@@ -5,8 +5,6 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Npgsql;
-using NHibernate;
-using NHibernate.XFactories;
 using Swashbuckle.AspNetCore.Filters;
 using Newtonsoft.Json.Serialization;
 
@@ -73,12 +71,12 @@ app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
+
 app.UseAuthentication();
 
 app.UseStaticFiles();
@@ -89,8 +87,12 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-
-
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+});
 
 app.UseSpa(spa =>
 {
@@ -101,11 +103,12 @@ app.UseSpa(spa =>
     }
 });
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
-});
-
 app.Run();
+
+
+
+
+
+
+
+
