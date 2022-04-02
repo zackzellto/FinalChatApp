@@ -7,6 +7,8 @@ using Microsoft.OpenApi.Models;
 using Npgsql;
 using Swashbuckle.AspNetCore.Filters;
 using Newtonsoft.Json.Serialization;
+//using FinalChatApp.IService;
+//using FinalChatApp.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,8 +29,9 @@ builder.Services.AddCors(c =>
         = new DefaultContractResolver());
 
     builder.Services.AddControllers();
+//builder.Services.AddScoped<IUserService, UserService>();
 
-builder.Services.AddControllers();
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

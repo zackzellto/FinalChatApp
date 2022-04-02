@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using FinalChatApp.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
+using BCrypt;
+using FinalChatApp.IService;
 
 namespace FinalChatApp.Controllers
 {
@@ -20,6 +17,14 @@ namespace FinalChatApp.Controllers
         {
             _configuration = configuration;
         }
+
+        //private readonly IUserService _userService = null;
+
+        //public UsersController(IUserService userService)
+        //{
+        //    _userService = userService;
+        //}
+
 
         // GET: api/Users
         [HttpGet]
@@ -69,6 +74,7 @@ namespace FinalChatApp.Controllers
                 {
                     usersCommand.Parameters.AddWithValue("@username", value: usr.Username);
                     usersCommand.Parameters.AddWithValue("@password", value: usr.Password);
+
                     usersReader = usersCommand.ExecuteReader();
                     table.Load(usersReader);
 

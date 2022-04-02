@@ -37,10 +37,16 @@
     <None Remove="sql_backups\backup.sql" />
     <None Remove="sql_backups\" />
     <None Remove="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+    <None Remove="Common\" />
+    <None Remove="IService\" />
+    <None Remove="Service\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="sql_backups\" />
+    <Folder Include="Common\" />
+    <Folder Include="IService\" />
+    <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Program.cs">
