@@ -7,6 +7,9 @@ using Microsoft.OpenApi.Models;
 using Npgsql;
 using Swashbuckle.AspNetCore.Filters;
 using Newtonsoft.Json.Serialization;
+using FinalChatApp.Data;
+using Microsoft.EntityFrameworkCore;
+
 //using FinalChatApp.IService;
 //using FinalChatApp.Service;
 
@@ -28,7 +31,9 @@ builder.Services.AddCors(c =>
         .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
         = new DefaultContractResolver());
 
-    builder.Services.AddControllers();
+builder.Services.AddDbContext<UserContext>(options =>
+        options.UseNpgsql(builder.Configuration.GetConnectionString("DBConnectionString")));
+builder.Services.AddControllers();
 //builder.Services.AddScoped<IUserService, UserService>();
 
 

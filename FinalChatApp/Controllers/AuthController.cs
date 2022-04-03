@@ -29,6 +29,8 @@ namespace FinalChatApp.Controllers
             _configuration = configuration;
         }
 
+        
+
         //Register request
         [HttpPost("register")]
 
