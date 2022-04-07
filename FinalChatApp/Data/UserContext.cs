@@ -11,8 +11,11 @@ namespace FinalChatApp.Data
 
         }
 
-		public DbSet<UserRegisterAndLogin> Users { set; get; }
+		public virtual DbSet<UserRegisterAndLogin> Users { set; get; }
+		public virtual DbSet<MessagesModel> Messages { set; get; }
 
+		
+		//Allowing for the Username to be unique upon registry
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 			modelBuilder.Entity<UserRegisterAndLogin>(entity => { entity.HasIndex(e => e.Username).IsUnique(); });

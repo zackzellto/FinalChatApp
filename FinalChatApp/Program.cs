@@ -31,15 +31,17 @@ builder.Services.AddCors(c =>
         .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
         = new DefaultContractResolver());
 
+//EF setting up connection with DB
 builder.Services.AddDbContext<UserContext>(options =>
         options.UseNpgsql(builder.Configuration.GetConnectionString("DBConnectionString")));
+
 builder.Services.AddControllers();
-//builder.Services.AddScoped<IUserService, UserService>();
 
 
 
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+
 builder.Services.AddEndpointsApiExplorer();
 
 
