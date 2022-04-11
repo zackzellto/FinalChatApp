@@ -3,7 +3,7 @@ using FinalChatApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 using BCrypt;
-using FinalChatApp.IService;
+
 
 namespace FinalChatApp.Controllers
 {

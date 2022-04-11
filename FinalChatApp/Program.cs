@@ -7,8 +7,9 @@ using Microsoft.OpenApi.Models;
 using Npgsql;
 using Swashbuckle.AspNetCore.Filters;
 using Newtonsoft.Json.Serialization;
-using FinalChatApp.Data;
+
 using Microsoft.EntityFrameworkCore;
+using FinalChatApp.Data;
 
 //using FinalChatApp.IService;
 //using FinalChatApp.Service;
@@ -32,7 +33,7 @@ builder.Services.AddCors(c =>
         = new DefaultContractResolver());
 
 //EF setting up connection with DB
-builder.Services.AddDbContext<UserContext>(options =>
+builder.Services.AddDbContext<ChatAppDbContext>(options =>
         options.UseNpgsql(builder.Configuration.GetConnectionString("DBConnectionString")));
 
 builder.Services.AddControllers();
