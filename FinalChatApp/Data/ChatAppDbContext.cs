@@ -6,13 +6,13 @@ namespace FinalChatApp.Data
 {
 	public class ChatAppDbContext : DbContext
 	{
-		public ChatAppDbContext(DbContextOptions<ChatAppDbContext> options) : base(options)
+        public ChatAppDbContext(DbContextOptions<ChatAppDbContext> options) : base(options)
 		{
 
 		}
 
-		public virtual DbSet<UserRegisterAndLogin> Users { set; get; }
-		public virtual DbSet<MessagesModel> Messages { set; get; }
+		public virtual DbSet<UserRegisterAndLogin> ?Users { set; get; }
+        public virtual DbSet<MessagesModel>? Messages { set; get; }
 
 
 

@@ -54,6 +54,7 @@
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Data\" />
     <None Remove="DTOs\" />
+    <None Remove="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -61,6 +62,7 @@
     <Folder Include="Service\" />
     <Folder Include="Data\" />
     <Folder Include="DTOs\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Program.cs">

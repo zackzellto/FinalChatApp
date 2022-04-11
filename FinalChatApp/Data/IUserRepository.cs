@@ -6,7 +6,7 @@ namespace FinalChatApp.Data
 	public interface IUserRepository
 	{
         UserRegisterAndLogin Create(UserRegisterAndLogin user);
-        UserRegisterAndLogin GetLogin(UserRegisterAndLogin user);
+        UserRegisterAndLogin GetByLogin(string loginUser);
     }
 }
 

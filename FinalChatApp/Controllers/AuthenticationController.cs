@@ -30,7 +30,22 @@ namespace FinalChatApp.Controllers
                 Password = BCrypt.Net.BCrypt.HashPassword(dto.Password)
             };
 
-            return Created("Success", _repository.Create(registerUser));
+            return Created("User Registered Successfully", _repository.Create(registerUser));
+        }
+
+        [HttpPost("login")]
+        public IActionResult Login(LoginDto dto)
+        {
+            UserRegisterAndLogin? loginUser = _repository.GetByLogin(dto.Username);
+
+            if (loginUser == null) return BadRequest(new { message = "Invalid Credentials" });
+
+            if (!BCrypt.Net.BCrypt.Verify(dto.Password, loginUser.Password))
+            {
+                return BadRequest(new { message = "Invalid Credentials" });
+            }
+
+            return Ok(loginUser);
         }
     }
 }
