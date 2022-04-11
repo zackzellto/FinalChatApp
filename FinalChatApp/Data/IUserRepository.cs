@@ -5,7 +5,7 @@ namespace FinalChatApp.Data
 {
 	public interface IUserRepository
 	{
-        User Create(User user);
+        UserRegisterAndLogin Create(UserRegisterAndLogin user);
     }
 }
 
