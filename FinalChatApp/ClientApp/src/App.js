@@ -5,10 +5,12 @@ import { SignUpForm } from "./components/loginpage/signUpForm";
 import LoginForm from "./components/loginpage/loginForm";
 import history from "./history";
 import Home from "./components/home";
+import Nav from "./components/Nav";
 
 function App() {
   return (
     <div className="App">
+      <Nav />
       <header className="App-header">
         <BrowserRouter history={history}>
           <Routes>
