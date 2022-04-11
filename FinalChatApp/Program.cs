@@ -38,7 +38,8 @@ builder.Services.AddDbContext<ChatAppDbContext>(options =>
 
 builder.Services.AddControllers();
 
-
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 
 
 

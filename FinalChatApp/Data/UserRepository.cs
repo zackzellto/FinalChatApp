@@ -19,6 +19,11 @@ namespace FinalChatApp.Data
 
             return user;
         }
+
+        public UserRegisterAndLogin GetLogin(UserRegisterAndLogin user)
+        {
+            return _chatAppDbContext.Users.FirstOrDefault(u => u.Username == user);
+        }
     }
 }
 
