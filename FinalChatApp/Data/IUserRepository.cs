@@ -7,6 +7,7 @@ namespace FinalChatApp.Data
 	{
         UserRegisterAndLogin Create(UserRegisterAndLogin user);
         UserRegisterAndLogin GetByLogin(string loginUser);
+        UserRegisterAndLogin GetById(int id);
     }
 }
 

@@ -10,6 +10,7 @@ using Newtonsoft.Json.Serialization;
 
 using Microsoft.EntityFrameworkCore;
 using FinalChatApp.Data;
+using FinalChatApp.Helpers;
 
 //using FinalChatApp.IService;
 //using FinalChatApp.Service;
@@ -39,6 +40,7 @@ builder.Services.AddDbContext<ChatAppDbContext>(options =>
 builder.Services.AddControllers();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 
 
@@ -78,7 +80,12 @@ var app = builder.Build();
 
 
 //Enable CORS
-app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+app.UseCors(options => options
+    .WithOrigins(new []{"http://localhost:3000", "http://localhost:8080", "http://localhost:4200" })
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .AllowCredentials()
+    );
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
