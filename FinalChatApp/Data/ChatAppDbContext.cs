@@ -12,7 +12,7 @@ namespace FinalChatApp.Data
 		}
 
 		public virtual DbSet<UserRegisterAndLogin> ?Users { set; get; }
-        public virtual DbSet<MessagesModel>? Messages { set; get; }
+		public virtual DbSet<MessagesModel> ?Messages { set; get; }
 
 
 

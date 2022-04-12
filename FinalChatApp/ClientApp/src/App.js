@@ -10,17 +10,17 @@ import Nav from "./components/Nav";
 function App() {
   return (
     <div className="App">
-      <Nav />
-      <header className="App-header">
-        <BrowserRouter history={history}>
+      <BrowserRouter history={history}>
+        <Nav />
+        <header className="App-header">
           <Routes>
             <Route path="/" exact element={<Home />}></Route>
-            <Route path="/signin" element={<LoginForm />}></Route>
-            <Route path="/signup" element={<SignUpForm />}></Route>
+            <Route path="/login" element={<LoginForm />}></Route>
+            <Route path="/register" element={<SignUpForm />}></Route>
             <Route path="/chat" element={<ChatApp />} />
           </Routes>
-        </BrowserRouter>
-      </header>
+        </header>
+      </BrowserRouter>
     </div>
   );
 }

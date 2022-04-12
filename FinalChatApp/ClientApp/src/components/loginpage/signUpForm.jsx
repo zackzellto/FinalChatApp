@@ -2,7 +2,7 @@ import React from "react";
 import { FormContainer, Input, MutedLink, Button } from "./sharedToForms";
 import { Marginer } from "../marginer";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import {
   HeaderContainer,
   InnerContainer,
@@ -12,63 +12,67 @@ import {
   BoxContainer,
 } from "../loginpage/index";
 
+
 export function SignUpForm(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const [redirect, setRedirect] = useState(false);
 
   const submitSignUpForm = async (e) => {
     e.preventDefault();
-    try {
-      const body = { username, password };
-      const response = fetch("http://localhost:5000/api/Users", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      console.log(response);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
+    
+      
+      await fetch('https://localhost:7089/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          Username: username,
+          Password: password
+        }),
+      })};
+
+  if(redirect){
+    return <Navigate to="/login" />
+  }
+  
 
   return (
-    <BoxContainer id="signup-container" >
+    <BoxContainer id="signup-container">
       <TopContainer>
         <BackDrop id="signup-backdrop" />
         <HeaderContainer>
           <HeaderText id="signin-header">ChatApp</HeaderText>
         </HeaderContainer>
-
         <InnerContainer>
-          <FormContainer>
+          
+          <FormContainer  >
             <Marginer direction="vertical" margin="3em"></Marginer>
-            <div id="signup-input-group">
+            <div id="signup-input-group" >
               <Input
                 type="username"
+                required
                 placeholder="Username"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={e => setUsername(e.target.value)}
               />
               <Input
                 type="password"
+                required
                 placeholder="Password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={e => setPassword(e.target.value)}
               />
             </div>
-          </FormContainer>
           <Marginer direction="vertical" margin={10} />
           <Marginer direction="vertical" margin="1em" />
-          <Link to="/signin">
-            <Button id="signup-btn" type="submit" href="#">
+            <Button id="signup-btn" type="submit" onClick={submitSignUpForm}>
               Sign up.
             </Button>
-          </Link>
           <Marginer direction="vertical" margin=".5em"></Marginer>;
           <MutedLink id="signup-link" href="#">
-            Have an account? <Link style={{ fontWeight: "700", color: "black" }} to="/signin">Sign in</Link>
+            Have an account? <Link style={{ fontWeight: "700", color: "black" }} to="/login">Sign in</Link>
           </MutedLink>
+          </FormContainer>
         </InnerContainer>
       </TopContainer>
     </BoxContainer>

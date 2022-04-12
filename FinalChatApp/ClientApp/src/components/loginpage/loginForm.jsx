@@ -45,7 +45,7 @@ function LoginForm(props) {
             <Link
               style={{ fontWeight: "700", color: "black" }}
               href=""
-              to="/signup"
+              to="/register"
             >
               Sign up
             </Link>
