@@ -25,7 +25,7 @@ namespace FinalChatApp.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Reister(RegisterDto dto)
+        public IActionResult Register(RegisterDto dto)
         {
             var registerUser = new UserRegisterAndLogin
             {

@@ -1,7 +1,7 @@
-import React from "react";
+import {React, useState} from "react";
 import { FormContainer, Input, MutedLink, Button } from "./sharedToForms";
 import { Marginer } from "../marginer";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import {
   HeaderContainer,
   InnerContainer,
@@ -14,6 +14,29 @@ import {
 
 
 function LoginForm(props) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
+
+
+  const login = async (e) => {
+    e.preventDefault();
+    await fetch('https://localhost:7089/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({
+        Username: username,
+        Password: password
+      }),
+    });
+    setRedirect(true);
+  }
+
+  if(redirect){
+    return <Navigate to="/chat" />
+  }
+
   return (
     <BoxContainer>
       <TopContainer>
@@ -27,15 +50,15 @@ function LoginForm(props) {
         <InnerContainer id="signin-input" >
           <FormContainer id="signin-input-group">
             <Marginer direction="vertical" margin="4em"></Marginer>
-            <Input type="username" placeholder="Username" />
-            <Input type="password" placeholder="Password" />
+            <Input type="username" placeholder="Username" onChange={e => setUsername(e.target.value)}/>
+            <Input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
           </FormContainer>
           <Marginer direction="vertical" margin={10} />
           <Marginer direction="vertical" margin="1em" />
           <Marginer direction="vertical" margin={10} />
           <Marginer direction="vertical" margin="1em" />
           <Link to="/chat">
-            <Button id="signin-btn" style={{ width: "400px" }} type="submit">
+            <Button id="signin-btn" style={{ width: "400px" }} type="submit" onClick={login}>
               Sign in.
             </Button>
           </Link>

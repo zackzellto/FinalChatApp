@@ -29,7 +29,9 @@ export function SignUpForm(props) {
           Username: username,
           Password: password
         }),
-      })};
+      });
+      setRedirect(true);
+    }
 
   if(redirect){
     return <Navigate to="/login" />
