@@ -1,4 +1,4 @@
-import React from "react";
+import { React } from "react";
 import { Link } from "react-router-dom";
 
 const Nav = (props) => {
@@ -8,6 +8,7 @@ const Nav = (props) => {
       headers: { "Content-Type": "application/json" },
       credentials: "include",
     });
+    props.setUsername("");
   };
 
   let navMenu;

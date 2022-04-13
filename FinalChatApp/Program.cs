@@ -44,10 +44,7 @@ builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 
 
-
-
 builder.Services.AddEndpointsApiExplorer();
-
 
 
 //Add jwt authorization in swagger to confirm token auth

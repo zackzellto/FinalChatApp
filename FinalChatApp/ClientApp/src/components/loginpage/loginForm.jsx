@@ -57,11 +57,11 @@ function LoginForm(props) {
           <Marginer direction="vertical" margin="1em" />
           <Marginer direction="vertical" margin={10} />
           <Marginer direction="vertical" margin="1em" />
-          <Link to="/chat">
+         
             <Button id="signin-btn" style={{ width: "400px" }} type="submit" onClick={login}>
               Sign in.
             </Button>
-          </Link>
+          
           <Marginer direction="vertical" margin=".5em"></Marginer>;
           <MutedLink id="signin-link" href="#">
             Don't have an account?{" "}

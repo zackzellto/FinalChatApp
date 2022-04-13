@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter history={history}>
-        <Nav username={username} />
+        <Nav username={username} setUsername={setUsername} />
         <header className="App-header">
           <Routes>
             <Route path="/" exact element={<Home />}></Route>

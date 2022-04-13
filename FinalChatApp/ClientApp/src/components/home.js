@@ -17,19 +17,6 @@ export const HeaderText = styled.h2`
 `;
 
 const Home = () => {
-  const [username, setUsername] = useState("");
-  useEffect(() => {
-    (async () => {
-      const response = await fetch("https://localhost:7089/api/user", {
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
-      const content = await response.json();
-
-      setUsername(content.username);
-    })();
-  });
-
   return (
     <>
       <HeaderText>Welcome to ChatApp</HeaderText>
