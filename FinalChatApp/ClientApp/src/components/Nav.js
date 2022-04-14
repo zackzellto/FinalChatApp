@@ -31,7 +31,6 @@ const Nav = (props) => {
   } else {
     navMenu = (
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">Hi, {props.username}</li>
         <li class="nav-item">
           <Link to="login" class="nav-link" onClick={logout}>
             Logout
@@ -59,7 +58,19 @@ const Nav = (props) => {
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">{navMenu}</li>
+          <li class="nav-item">
+            <div class="nav-link">You are not logged in</div>
+          </li>
+          <li class="nav-item">
+            <Link to="register" class="nav-link">
+              Register
+            </Link>
+          </li>
+          <li class="nav-item">
+            <Link to="login" class="nav-link">
+              Login
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>

@@ -14,10 +14,12 @@ namespace FinalChatApp.Data
 
         public UserRegisterAndLogin Create(UserRegisterAndLogin user)
         {
-            _chatAppDbContext.Users.Add(user);
-            user.Id =_chatAppDbContext.SaveChanges();
 
-            return user;
+                _chatAppDbContext.Users.Add(user);
+                user.Id = _chatAppDbContext.SaveChanges();
+
+                return user;
+            
         }
 
         public UserRegisterAndLogin GetById(int id)

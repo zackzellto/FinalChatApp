@@ -21,7 +21,7 @@ function LoginForm(props) {
 
   const login = async (e) => {
     e.preventDefault();
-    await fetch('https://localhost:7089/api/login', {
+    const response = await fetch('https://localhost:7089/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -30,6 +30,7 @@ function LoginForm(props) {
         Password: password
       }),
     });
+
     setRedirect(true);
   }
 
@@ -57,11 +58,11 @@ function LoginForm(props) {
           <Marginer direction="vertical" margin="1em" />
           <Marginer direction="vertical" margin={10} />
           <Marginer direction="vertical" margin="1em" />
-         
+          <Link to="/chat">
             <Button id="signin-btn" style={{ width: "400px" }} type="submit" onClick={login}>
               Sign in.
             </Button>
-          
+          </Link>
           <Marginer direction="vertical" margin=".5em"></Marginer>;
           <MutedLink id="signin-link" href="#">
             Don't have an account?{" "}

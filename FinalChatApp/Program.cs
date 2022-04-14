@@ -101,6 +101,8 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseWebSockets();
+
 app.MapControllers();
 
 app.UseEndpoints(endpoints =>
