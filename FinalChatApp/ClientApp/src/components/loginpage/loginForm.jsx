@@ -21,7 +21,7 @@ function LoginForm(props) {
 
   const login = async (e) => {
     e.preventDefault();
-    const response = await fetch('https://localhost:7089/api/login', {
+    await fetch('https://localhost:7089/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',

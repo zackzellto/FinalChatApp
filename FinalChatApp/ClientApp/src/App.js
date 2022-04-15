@@ -10,7 +10,8 @@ import Nav from "./components/Nav";
 
 function App() {
   const [username, setUsername] = useState("");
-  useEffect(() => {
+
+  const loggedInUser = useEffect(() => {
     (async () => {
       const response = await fetch("https://localhost:7089/api/user", {
         headers: { "Content-Type": "application/json" },
@@ -31,7 +32,10 @@ function App() {
             <Route path="/" exact element={<Home />}></Route>
             <Route path="/login" element={<LoginForm />}></Route>
             <Route path="/register" element={<SignUpForm />}></Route>
-            <Route path="/chat" element={<ChatApp />} />
+            <Route
+              path="/chat"
+              element={<ChatApp loggedInUser={loggedInUser} />}
+            />
           </Routes>
         </header>
       </BrowserRouter>

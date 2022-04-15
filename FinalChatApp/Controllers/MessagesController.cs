@@ -1,152 +1,152 @@
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Threading.Tasks;
-//using System.Data;
-//using FinalChatApp.Models;
-//using Microsoft.AspNetCore.Http;
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.Extensions.Configuration;
-//using Npgsql;
-//using System.Text.Json.Serialization;
-//using System.Text.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Data;
+using FinalChatApp.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Npgsql;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
-//namespace FinalChatApp.Controllers
-//{
-//    [Route("api/[controller]")]
-//    [ApiController]
-//    public class MessagesController : ControllerBase
-//    {
-//        private readonly IConfiguration _configuration;
-//        public MessagesController(IConfiguration configuration)
-//        {
-//            _configuration = configuration;
-//        }
+namespace FinalChatApp.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class MessagesController : ControllerBase
+    {
+        private readonly IConfiguration _configuration;
+        public MessagesController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
 
-//        // GET: api/Messages
-//        [HttpGet]
-      
-//        public JsonResult Get()
-//        {
-//            string messagesQuery = @"
-//                SELECT id as ""Id"",
-//                        username as ""Username"",
-//                        message as ""Message"",
-//                        date_time as ""Date_time""
-//                FROM messages";
+        // GET: api/Messages
+        [HttpGet]
 
-//            DataTable table = new DataTable(); 
-//            string DBConnectionString = _configuration.GetConnectionString("DBConnectionString");
-//            NpgsqlDataReader messageReader;
-//            using (NpgsqlConnection messageConnection = new NpgsqlConnection(DBConnectionString))
-//            {
-//                messageConnection.Open();
-//                using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
-//            {
-//                    messageReader = messageCommand.ExecuteReader();
-//                table.Load(messageReader);
+        public JsonResult Get()
+        {
+            string messagesQuery = @"
+                SELECT id as ""Id"",
+                        username as ""Username"",
+                        message as ""Message"",
+                        date_time as ""Date_time""
+                FROM messages";
 
-//                    messageReader.Close();
-//                messageConnection.Close();
-//                }
-//             }
-//            return new JsonResult(table);
-//        }
+            DataTable table = new DataTable();
+            string DBConnectionString = _configuration.GetConnectionString("DBConnectionString");
+            NpgsqlDataReader messageReader;
+            using (NpgsqlConnection messageConnection = new NpgsqlConnection(DBConnectionString))
+            {
+                messageConnection.Open();
+                using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
+                {
+                    messageReader = messageCommand.ExecuteReader();
+                    table.Load(messageReader);
 
-//        // POST: api/Messages
-//        [HttpPost]
-      
-//        public JsonResult Post(MessagesModel msg)
-//        {
-//            string messagesQuery = @"
-//                INSERT INTO messages (username, message)
-//                VALUES (@username, @message)
-//            ";
-//            DataTable table = new DataTable();
-//            string DBConnectionString = _configuration.GetConnectionString("DBConnectionString");
-//            NpgsqlDataReader messageReader;
-//            using (NpgsqlConnection messageConnection = new NpgsqlConnection(DBConnectionString))
-//            {
-//                messageConnection.Open();
-//                using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
-//                {
-//                    messageCommand.Parameters.AddWithValue("@username", value: msg.Username);
-//                    messageCommand.Parameters.AddWithValue("@message", value: msg.Message);
-//                    messageReader = messageCommand.ExecuteReader();
-//                    table.Load(messageReader);
+                    messageReader.Close();
+                    messageConnection.Close();
+                }
+            }
+            return new JsonResult(table);
+        }
 
-//                    messageReader.Close();
-//                    messageConnection.Close();
-//                }
-//            }
-//            return new JsonResult("Entry added successfully!");
-//        }
+        // POST: api/Messages
+        [HttpPost]
 
-//        // PUT: api/Messages
-//        [HttpPut]
+        public JsonResult Post(MessagesModel msg)
+        {
+            string messagesQuery = @"
+                INSERT INTO messages (username, message)
+                VALUES (@username, @message)
+            ";
+            DataTable table = new DataTable();
+            string DBConnectionString = _configuration.GetConnectionString("DBConnectionString");
+            NpgsqlDataReader messageReader;
+            using (NpgsqlConnection messageConnection = new NpgsqlConnection(DBConnectionString))
+            {
+                messageConnection.Open();
+                using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
+                {
+                    messageCommand.Parameters.AddWithValue("@username", value: msg.Username);
+                    messageCommand.Parameters.AddWithValue("@message", value: msg.Message);
+                    messageReader = messageCommand.ExecuteReader();
+                    table.Load(messageReader);
 
-//        public JsonResult Put(MessagesModel msg)
-//        {
-//            string messagesQuery = @"
-//                UPDATE messages
-//                SET username = @username, message = @message, date_time = now()
-//                WHERE id = @id
-//            ";
-//            DataTable table = new DataTable();
-//            string DBConnectionString = _configuration.GetConnectionString("DBConnectionString");
-//            NpgsqlDataReader messageReader;
-//            using (NpgsqlConnection messageConnection = new NpgsqlConnection(DBConnectionString))
-//            {
-//                messageConnection.Open();
-//                using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
-//                {
-                    
-//                    messageCommand.Parameters.AddWithValue("@username", value: msg.Username);
-//                    messageCommand.Parameters.AddWithValue("@message", value: msg.Message);
-//                    messageCommand.Parameters.AddWithValue("@id", value: msg.Id);
-//                    messageCommand.Parameters.AddWithValue("@date_time", value: msg.Date_time);
-//                    messageReader = messageCommand.ExecuteReader();
-//                    table.Load(messageReader);
-                    
-//                    messageReader.Close();
-//                    messageConnection.Close();
-//                }
-//            }
-//            return new JsonResult("Entry updated successfully!");
-//        }
+                    messageReader.Close();
+                    messageConnection.Close();
+                }
+            }
+            return new JsonResult("Entry added successfully!");
+        }
 
-//        // DELETE: api/Messages
-//        [HttpDelete]
+        // PUT: api/Messages
+        [HttpPut]
 
-//        public JsonResult Delete(int id)
-//        {
-//            string messagesQuery = @"
-//                DELETE FROM messages
-//                WHERE id = @id
-//            ";
-//            DataTable table = new DataTable();
-//            string DBConnectionString = _configuration.GetConnectionString("DBConnectionString");
-//            NpgsqlDataReader messageReader;
-//            using (NpgsqlConnection messageConnection = new NpgsqlConnection(DBConnectionString))
-//            {
-//                messageConnection.Open();
-//                using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
-//                {
+        public JsonResult Put(MessagesModel msg)
+        {
+            string messagesQuery = @"
+                UPDATE messages
+                SET username = @username, message = @message, date_time = now()
+                WHERE id = @id
+            ";
+            DataTable table = new DataTable();
+            string DBConnectionString = _configuration.GetConnectionString("DBConnectionString");
+            NpgsqlDataReader messageReader;
+            using (NpgsqlConnection messageConnection = new NpgsqlConnection(DBConnectionString))
+            {
+                messageConnection.Open();
+                using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
+                {
 
-//                    messageCommand.Parameters.AddWithValue("@id", value: id);
-//                    messageReader = messageCommand.ExecuteReader();
-//                    table.Load(messageReader);
+                    messageCommand.Parameters.AddWithValue("@username", value: msg.Username);
+                    messageCommand.Parameters.AddWithValue("@message", value: msg.Message);
+                    messageCommand.Parameters.AddWithValue("@id", value: msg.Id);
+                    messageCommand.Parameters.AddWithValue("@date_time", value: msg.Date_time);
+                    messageReader = messageCommand.ExecuteReader();
+                    table.Load(messageReader);
 
-//                    messageReader.Close();
-//                    messageConnection.Close();
-//                }
-//            }
-//            return new JsonResult("Entry deleted successfully!");
-//        }
-//    }
-//}
-            
-     
+                    messageReader.Close();
+                    messageConnection.Close();
+                }
+            }
+            return new JsonResult("Entry updated successfully!");
+        }
+
+        // DELETE: api/Messages
+        [HttpDelete]
+
+        public JsonResult Delete(int id)
+        {
+            string messagesQuery = @"
+                DELETE FROM messages
+                WHERE id = @id
+            ";
+            DataTable table = new DataTable();
+            string DBConnectionString = _configuration.GetConnectionString("DBConnectionString");
+            NpgsqlDataReader messageReader;
+            using (NpgsqlConnection messageConnection = new NpgsqlConnection(DBConnectionString))
+            {
+                messageConnection.Open();
+                using (NpgsqlCommand messageCommand = new(messagesQuery, messageConnection))
+                {
+
+                    messageCommand.Parameters.AddWithValue("@id", value: id);
+                    messageReader = messageCommand.ExecuteReader();
+                    table.Load(messageReader);
+
+                    messageReader.Close();
+                    messageConnection.Close();
+                }
+            }
+            return new JsonResult("Entry deleted successfully!");
+        }
+    }
+}
 
 
-      
+
+
+

@@ -11,6 +11,7 @@ using Newtonsoft.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using FinalChatApp.Data;
 using FinalChatApp.Helpers;
+using FinalChatApp.Hubs;
 
 //using FinalChatApp.IService;
 //using FinalChatApp.Service;
@@ -21,10 +22,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 //Enable CORS
-builder.Services.AddCors(c =>
-    {
-        c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-    });
+//builder.Services.AddCors(c =>
+//    {
+//        c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+//    });
 
 
     //JSON Serializer
@@ -43,6 +44,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 
+builder.Services.AddSignalR();
 
 builder.Services.AddEndpointsApiExplorer();
 
@@ -67,12 +69,12 @@ var app = builder.Build();
 
 //Enable WebSockets
 
-var webSocketOptions = new WebSocketOptions
-{
-    KeepAliveInterval = TimeSpan.FromMinutes(2)
-};
+//var webSocketOptions = new WebSocketOptions
+//{
+//    KeepAliveInterval = TimeSpan.FromMinutes(2)
+//};
 
-app.UseWebSockets(webSocketOptions);
+//app.UseWebSockets(webSocketOptions);
 
 
 //Enable CORS
@@ -109,6 +111,8 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
+
+    endpoints.MapHub<ChatAppHub>("/chat");
 });
 
 app.UseSpa(spa =>
